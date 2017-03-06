@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="time_select">
+        <item>""</item>
+        <item>08:00</item>
+        <item>08:30</item>
+        <item>09:00</item>
+        <item>09:30</item>
+        <item>10:00</item>
+        <item>10:30</item>
+        <item>11:00</item>
+        <item>11:30</item>
+        <item>12:00</item>
+        <item>12:30</item>
+        <item>13:00</item>
+        <item>13:30</item>
+        <item>14:00</item>
+        <item>14:30</item>
+        <item>15:00</item>
+        <item>15:30</item>
+        <item>16:00</item>
+        <item>16:30</item>
+        <item>17:00</item>
+        <item>17:30</item>
+        <item>18:00</item>
+        <item>18:30</item>
+        <item>19:00</item>
+        <item>19:30</item>
+        <item>20:00</item>
+    </string-array>
+
+    <string-array name="cfrc_tp">
+        <item>회의타입</item>
+        <item>영상</item>
+        <item>영상+문서</item>
+        <item>문서</item>
+    </string-array>
+
+    <string-array name="cfrc_room_tp">
+        <item>회의실타입</item>
+        <item>온라인</item>
+        <item>오프라인</item>
+    </string-array>
+
+    <string-array name="fruc_st">
+        <item>작업상태</item>
+        <item>대기</item>
+        <item>진행</item>
+        <item>종료</item>
+    </string-array>
+
+    <string-array name="priority">
+        <item>중요도</item>
+        <item>낮음</item>
+        <item>중간</item>
+        <item>높음</item>
+    </string-array>
+</resources>

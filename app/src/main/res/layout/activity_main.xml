@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true">
+
+    <FrameLayout
+        android:id="@+id/main_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/fab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        fab:menu_labels_style="@style/MenuLabelsStyle"
+        fab:menu_backgroundColor="#aa000000"
+        fab:menu_fab_label="닫기"
+        fab:menu_shadowColor="@color/colorShadowGrey"
+        fab:menu_shadowRadius="2dp"
+        fab:menu_shadowXOffset="1dp"
+        fab:menu_shadowYOffset="2dp"
+        fab:menu_colorNormal="@color/colorAccent"
+        fab:menu_colorPressed="@color/colorAccentDark"
+        fab:menu_colorRipple="@color/colorAccentDark">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_sns_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_edit"
+            fab:fab_size="mini"
+            fab:fab_label="피드 작성"
+            style="@style/MenuButtonsStyle"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_plan_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_event_available_white_24dp"
+            fab:fab_size="mini"
+            fab:fab_label="일정 작성"
+            style="@style/MenuButtonsStyle"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:visibility="gone"
+            android:id="@+id/fab_cfrc_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_share_white_24dp"
+            fab:fab_size="mini"
+            fab:fab_label="회의 작성"
+            style="@style/MenuButtonsStyle"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_task_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_content_paste_white_24dp"
+            fab:fab_size="mini"
+            fab:fab_label="업무 작성"
+            style="@style/MenuButtonsStyle"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:visibility="gone"
+            android:id="@+id/fab_memo_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_question_answer_white_24dp"
+            fab:fab_size="mini"
+            fab:fab_label="메모보고 작성"
+            style="@style/MenuButtonsStyle"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:visibility="gone"
+            android:id="@+id/fab_work_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_insert_chart_white_24dp"
+            fab:fab_size="mini"
+            fab:fab_label="과제 작성"
+            style="@style/MenuButtonsStyle"/>
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+</RelativeLayout>
+

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 2015 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+-->
+
+<resources>
+    <string name="app_copyright">Copyright 2012 - 2016 i2max, All rights reserved</string>
+
+    <string name="checkin">Checkin</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_intro">IntroActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="login">로그인</string>
+    <string name="login_hint">User ID</string>
+    <string name="password_hint">Password</string>
+    <string name="auto_login">자동로그인</string>
+
+    <string name="action_group_change">그룹전체</string>
+    <string name="action_search">검색</string>
+    <string name="action_sns_function">SNS기능</string>
+    <string name="action_close">닫기</string>
+    <string name="action_setting">설정</string>
+
+    <!-- Menu -->
+    <string name="notify">알림</string>
+    <string name="connect_community">소통커뮤니티</string>
+    <string name="plan">일정</string>
+    <string name="cfrc_manage">회의관리</string>
+    <string name="task">작업</string>
+    <string name="memo">메모보고</string>
+    <string name="work">과제관리</string>
+    <string name="web">웹뷰</string>
+
+    <!-- 상세화면 타이틀 -->
+    <string name="cfrc_add">회의 생성</string>
+    <string name="cfrc_edit">회의 편집</string>
+    <string name="cfrc_detail">회의 상세</string>
+    <string name="task_detail">업무 상세</string>
+    <string name="task_add">업무 생성</string>
+    <string name="task_edit">업무 편집</string>
+    <string name="memo_detail">메모보고 상세</string>
+    <string name="memo_add">메모보고 생성</string>
+    <string name="memo_edit">메모보고 편집</string>
+    <string name="work_detail">과제 상세</string>
+    <string name="work_add">과제 생성</string>
+    <string name="work_edit">과제 편집</string>
+
+
+    <string name="global_search_hint">검색어를 입력하세요</string>
+
+    <!-- Bottom sheet -->
+    <string name="bottom_sheet_title">바로 추가하기</string>
+    <string name="add_conference">회의추가</string>
+    <string name="add_plan">일정추가</string>
+    <string name="add_sns">SNS 작성</string>
+
+    <!-- SNS Personal-Group function Activity -->
+    <string name="friend">친구</string>
+    <string name="following">팔로잉</string>
+    <string name="follower">팔로워</string>
+    <string name="member">멤버</string>
+    <string name="group">그룹</string>
+    <string name="file">파일</string>
+    <string name="picture">사진첩</string>
+    <string name="schedule">일정</string>
+    <string name="notification">알림</string>
+    <string name="join_apply_list">가입신청목록</string>
+    <string name="group_profile">그룹프로필</string>
+    <string name="permit_throw">권한위임</string>
+
+    <!-- SNS Manager Activity -->
+    <string name="profile">프로필</string>
+    <string name="password">보안</string>
+    <string name="push">알림</string>
+    <string name="version_info">버전정보</string>
+    <string name="logout">로그아웃</string>
+    <string name="friend_search">친구검색</string>
+    <string name="group_search">그룹검색</string>
+    <string name="file_list">파일목록</string>
+    <string name="thumbnail_list">사진첩</string>
+
+    <!-- SNS Config Profile Activity -->
+    <string name="usr_id">아이디</string>
+    <string name="mobile">휴대폰</string>
+    <string name="phone">전화번호</string>
+    <string name="dept">부서</string>
+    <string name="introduce">자기소개</string>
+
+    <!-- SNS Config Password Activity -->
+    <string name="password_current">현재비밀번호</string>
+    <string name="password_new">신규비밀번호</string>
+    <string name="password_new_confirm">신규비밀번호 확인</string>
+  <string name="password_rule">  * 비밀번호 적용 규칙\n
+  1. 비밀번호는 영문/숫자/특수문자 혼합 8~10자리의 비밀번호로 조합하여야 합니다.\n
+  2. 동일문자 또는 연속된 문자를 3회 이상 사용 할 수 없습니다.\n
+  3. 현재 비밀번호는 사용 할 수 없습니다.\n
+  4. 직전 비밀번호는 사용 할 수 없습니다.\n
+  5. 전화 번호 뒷자리는 비밀번호에 포함될 수 없습니다.\n
+  6. 아이디(일부)는 비밀번호에 포함될 수 없습니다.\n
+  * 비밀번호가 기억나지 않을 경우 관리자에게 요청하시면 임시비밀번호를 이메일로 발급해드립니다.</string>
+
+    <!-- SNS Config Group Profile Activity -->
+    <string name="grp_create">그룹만들기</string>
+    <string name="grp_info_change">그룹정보수정</string>
+    <string name="grp_nm">그룹명</string>
+    <string name="grp_intro">그룹소개</string>
+    <string name="is_public">공개여부</string>
+    <string name="public_on">공개</string>
+    <string name="public_off">비공개</string>
+
+    <!-- Plan Detail Activity -->
+    <string name="plan_term">시작종료일시</string>
+    <string name="auth_nm">작성자</string>
+    <string name="plan_ttl">제목</string>
+    <string name="plan_tar_obj">대상</string>
+    <string name="place">장소</string>
+    <string name="descript">내용</string>
+    <string name="plan_delete">삭 제</string>
+    <string name="plan_modify">편 집</string>
+
+    <!-- Plan Create Activity -->
+    <string name="start_dttm">시작일시</string>
+    <string name="end_dttm">종료일시</string>
+    <string name="all_day">하루종일</string>
+
+    <string-array name="array_search_spinner">
+        <item>전체 글</item>
+        <item>내가 쓴 글</item>
+        <item>그룹 글</item>
+    </string-array>
+
+    <string-array name="array_todo_memo">
+        <item>처리할 결제</item>
+        <item>참조</item>
+        <item>완결</item>
+    </string-array>
+
+    <string-array name="array_my_memo">
+        <item>작성중</item>
+        <item>상신</item>
+        <item>완료</item>
+    </string-array>
+
+    <string name="task_member">담당자</string>
+
+    <!--버튼 공통 -->
+    <string name="ok">확 인</string>
+    <string name="cancel">취 소</string>
+    <string name="edit">수 정</string>
+    <string name="del">삭 제</string>
+    <string name="search">검 색</string>
+    <string name="prev">이 전</string>
+    <string name="next">저 장</string>
+    <string name="save">저 장</string>
+    <string name="input">입 력</string>
+    <string name="select">선 택</string>
+    <string name="tel">통화하기</string>
+
+    <!-- ERROR 메세지 -->
+    <string name="empty_self_intro">자기소개를 입력해주세요...</string>
+    <string name="no_data_searched">검색된 내용이 없습니다.</string>
+    <string name="no_data_available">등록된 데이터가 없습니다.</string>
+    <string name="no_more_data">더 이상 데이터가 없습니다.</string>
+
+    <string name="no_sns_data_available">등록된 피드가 없습니다.</string>
+    <string name="no_sns_data_following">등록된 팔로잉 사용자가 없습니다.</string>
+    <string name="no_sns_data_follower">등록된 팔로워가 없습니다.</string>
+    <string name="no_plan_data_available">등록된 일정이 없습니다.</string>
+    <string name="no_file_data_available">등록된 파일이 없습니다.</string>
+
+    <string name="no_cfrc_data_available">등록된 회의가 없습니다.</string>
+    <string name="no_cfrc_online_room_available">등록된 온라인 회의가 없습니다.</string>
+    <string name="no_cfrc_room_available">등록된 회의실이 없습니다.</string>
+    <string name="no_task_data_available">등록된 작업이 없습니다.</string>
+    <string name="no_memo_data_available">등록된 메모보고가 없습니다.</string>
+
+    <string name="no_work_data_available">등록된 과제가 없습니다.</string>
+    <string name="no_milestone_data_available">등록된 마일스톤이 없습니다.</string>
+
+    <string name="no_cfrc_member_data_available">등록된 참석자가 없습니다.</string>
+    <string name="no_task_member_data_available">등록된 담당자가 없습니다.</string>
+    <string name="no_memo_member_data_available">등록된 담당자가 없습니다.</string>
+    <string name="no_work_member_data_available">등록된 담당자가 없습니다.</string>
+
+    <string name="expired_login_session_title">로그인 만료</string>
+    <string name="expired_login_session_msg">"로그인 정보가 만료되었거나 다른기기에서 로그인 하였습니다.\n다시 로그인하시기 바랍니다?"</string>
+    <string name="unable_access_network_error">"네트워크 에러가 발생하였습니다. \n네트워크 환경을 확인하시고 다시 시도시하기 바랍니다"</string>
+
+</resources>

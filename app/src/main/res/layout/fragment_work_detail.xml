@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/tv_ttl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="18dp"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/text_color_black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_crt_dttm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:textAppearance="?attr/textAppearanceListItemSmall"
+                android:textColor="@color/text_color_dark_grey"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/tv_refe_work_ttl_ttl"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
+                android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
+                android:text="이전과제"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/text_color_black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_refe_work_ttl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="9dp"
+                android:layout_toRightOf="@id/tv_tar_obj_tp_nm"
+                android:textAppearance="?attr/textAppearanceListItemSmall"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/tv_usr_ttl"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="24dp"
+                android:layout_marginTop="24dp"
+                android:text="담당자"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/text_color_black"
+                android:textSize="15sp" />
+
+            <RelativeLayout
+                android:id="@+id/rl_photo"
+                android:layout_width="@dimen/list_item_avatar_bg_size"
+                android:layout_height="@dimen/list_item_avatar_bg_size"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_usr_ttl"
+                android:background="@drawable/bg_list_profile">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civ_crt_usr_photo"
+                    android:layout_width="@dimen/list_item_avatar_size"
+                    android:layout_height="@dimen/list_item_avatar_size"
+                    android:layout_centerInParent="true" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_crt_usr_nm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="2dp"
+                android:layout_toRightOf="@id/rl_photo"
+                android:textAppearance="?attr/textAppearanceListItemSmall"
+                android:textColor="@color/text_color_grey_cntn1"
+                android:textSize="15sp" />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/default_margin"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin"
+            android:paddingTop="@dimen/default_margin">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.45">
+
+                <TextView
+                    android:id="@+id/tv_grp_cd_nm_ttl"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="분류"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_grp_cd_nm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_grp_cd_nm_ttl"
+                    android:text="일반"
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textColor="@color/text_color_grey_cntn1"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.55"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_grp_dtl_nm_ttl"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:gravity="left"
+                    android:text="전략방향"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_grp_dtl_nm"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:gravity="right"
+                    android:text="방폐물관리전문성제고"
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textColor="@color/text_color_grey_cntn1"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/default_margin"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin"
+            android:paddingTop="@dimen/default_margin">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.45">
+
+                <TextView
+                    android:id="@+id/tv_st_ttl"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="상태"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_st_nm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_st_ttl"
+                    android:text="대기"
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textColor="@color/text_color_grey_cntn1"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.55">
+
+                <TextView
+                    android:id="@+id/tv_pgrs_rate_ttl"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="진행률"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="15sp" />
+                <!--  진행률 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="right|center_vertical"
+                    android:orientation="horizontal">
+
+                    <ProgressBar
+                        android:id="@+id/pb_pgrs_rate"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="@dimen/default_margin"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:progress="10" />
+
+                    <TextView
+                        android:id="@+id/tv_pgrs_rate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:text="10%"
+                        android:textAppearance="?attr/textAppearanceListItemSmall"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/default_margin"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin"
+            android:paddingTop="@dimen/default_margin">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5">
+
+                <TextView
+                    android:id="@+id/tv_start_dt_ttl"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="시작일"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_start_dt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_start_dt_ttl"
+                    android:text="2015-11-01"
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textColor="@color/text_color_grey_cntn1"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_end_dt_ttl"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="left"
+                    android:text="종료일"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_end_dt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="right"
+                    android:text="2015-11-02"
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textColor="@color/text_color_grey_cntn1"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_cntn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/tv_cntn_ttl"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
+                android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
+                android:text="내용"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/text_color_black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_cntn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
+                android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
+                android:layout_toRightOf="@id/tv_cntn_ttl"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/text_color_grey_cntn1"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_doc_file_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/cfrc_vertical_margin_small"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin"></LinearLayout>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

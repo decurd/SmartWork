@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
+    android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
+    android:layout_marginRight="@dimen/cfrc_vertical_margin_small"
+    android:gravity="center_vertical|left">
+    <ImageView
+        android:id="@+id/iv_ic_file_ext"
+        android:layout_width="24dp"
+        android:layout_height="27dp"
+        android:gravity="center_vertical|left"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_file_doc"/>
+    <TextView
+        android:id="@+id/tv_file_nm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:gravity="center_vertical|left"
+        android:layout_toRightOf="@id/iv_ic_file_ext"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="22dp"
+        android:textAppearance="?attr/textAppearanceListItem"
+        android:textColor="@color/text_color_grey_cntn1"
+        android:singleLine="true"
+        android:text="파일이름.txt"
+        android:textSize="15sp" />
+    <ImageButton
+        android:id="@+id/ib_del"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:background="@drawable/btn_del_small"/>
+</RelativeLayout>

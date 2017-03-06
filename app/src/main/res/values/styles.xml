@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2015 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+-->
+
+<resources>
+
+    <style name="Theme.DesignDemo" parent="Base.Theme.DesignDemo">
+    </style>
+
+    <style name="Base.Theme.DesignDemo" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:windowSoftInputMode">adjustUnspecified</item>
+        <item name="android:windowFullscreen">false</item>
+    </style>
+    <style name="StyleWindowSoftInputModeAdjustResize" >
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:windowFullscreen">false</item>
+    </style>
+    <style name="Theme.AppCompat.Translucent">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="Widget.CardContent" parent="android:Widget">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">24dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Theme.SmoothProgressBarDefaults" parent="android:Theme.Holo">
+        <item name="cpbStyle">@style/CircularProgressBar</item>
+    </style>
+
+    <style name="CPB" parent="android:Widget.Holo.ProgressBar">
+    </style>
+
+    <style name="CircularProgressBar" parent="CPB">
+        <item name="cpb_color">@color/cpb_default_color</item>
+        <item name="cpb_stroke_width">@dimen/cpb_default_stroke_width</item>
+        <item name="cpb_min_sweep_angle">@integer/cpb_default_min_sweep_angle</item>
+        <item name="cpb_max_sweep_angle">@integer/cpb_default_max_sweep_angle</item>
+        <item name="cpb_sweep_speed">@string/cpb_default_sweep_speed</item>
+        <item name="cpb_rotation_speed">@string/cpb_default_rotation_speed</item>
+    </style>
+
+    <color name="cpb_default_color">#33b5e5</color>
+    <dimen name="cpb_default_stroke_width">4dp</dimen>
+    <integer name="cpb_default_min_sweep_angle">20</integer>
+    <integer name="cpb_default_max_sweep_angle">300</integer>
+    <item name="cpb_default_sweep_speed" format="float" type="string">1</item>
+    <item name="cpb_default_rotation_speed" format="float" type="string">1</item>
+
+    <!-- 버튼텍스트 스타일 -->
+    <style name="BtnLoginText">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- 텍스트 스타일 -->
+    <style name="TextListSmall">
+        <item name="android:textColor">@color/text_color_grey</item>
+        <item name="android:textSize">10dp</item>
+    </style>
+
+    <style name="TextListBigBold">
+        <item name="android:textColor">@color/text_color_dark_grey</item>
+        <item name="android:textSize">13dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextListBigGray">
+        <item name="android:textColor">@color/text_color_grey</item>
+        <item name="android:textSize">13dp</item>
+    </style>
+
+    <style name="TextSpinnerBlack">
+        <item name="android:textColor">@color/text_color_black</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="TextListMediumPrimary">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="TextListMedium">
+        <item name="android:textColor">@color/text_color_black</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="TextListMediumDarkGray">
+        <item name="android:textColor">@color/text_color_dark_grey</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="TextListMediumGray">
+        <item name="android:textColor">@color/text_color_grey</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="TextMenuBigBold">
+        <item name="android:textColor">@color/text_color_white</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextMenuBig">
+        <item name="android:textColor">@color/text_color_white</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:alpha">0.7</item>
+    </style>
+
+    <style name="TextMenuMedium">
+        <item name="android:textColor">@color/text_color_white</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:alpha">0.7</item>
+    </style>
+
+    <style name="TextMenuSmall">
+        <item name="android:textColor">@color/text_color_white</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:alpha">0.7</item>
+    </style>
+
+    <style name="TextSNSMangeBig">
+        <item name="android:textColor">@color/text_color_dark_grey</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="TextSNSGroupSpinner">
+        <item name="android:textColor">@color/text_color_dark_grey</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="TextSNSWriteLink">
+        <item name="android:textColor">@color/text_color_white</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="TextSNSWriteLinkSmall">
+        <item name="android:textColor">@color/text_color_white</item>
+        <item name="android:textSize">11dp</item>
+    </style>
+
+    <style name="TextVersionInfoBig">
+        <item name="android:textColor">@color/text_color_black</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="TextVersionInfoMedium">
+        <item name="android:textColor">@color/text_color_black</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="TextVersionInfoMediumCP">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="TextVersionInfoSmall">
+        <item name="android:textColor">@color/text_color_dim</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="TextPasswordRule">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">11dp</item>
+    </style>
+
+    <style name="TextPlanEdit">
+        <item name="android:textColor">@color/text_color_dark_grey</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:background">@null</item>
+    </style>
+
+
+    <style name="TextVersionInfoBigBold" parent="TextVersionInfoBig">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MenuLabelsStyle">
+        <item name="android:background">@null</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="MenuButtonsStyle">
+        <item name="fab_size">mini</item>
+        <item name="fab_showAnimation">@anim/jump_from_down</item>
+        <item name="fab_hideAnimation">@anim/jump_to_down</item>
+        <item name="fab_shadowColor">@color/colorShadowGrey</item>
+        <item name="fab_colorNormal">@color/colorPrimary</item>
+        <item name="fab_colorPressed">@color/colorPrimaryDark</item>
+        <item name="fab_colorRipple">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="MenuButtonsSmall">
+        <item name="fab_size">mini</item>
+        <item name="fab_colorNormal">#1565C0</item>
+        <item name="fab_colorPressed">#2272CD</item>
+        <item name="fab_colorRipple">#62B2FF</item>
+    </style>
+
+    <style name="MenuButtonsSmall.Green">
+        <item name="fab_colorNormal">#43A047</item>
+        <item name="fab_colorPressed">#2E7D32</item>
+        <item name="fab_colorRipple">#1B5E20</item>
+    </style>
+
+</resources>

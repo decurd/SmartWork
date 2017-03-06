@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.i2max.i2smartwork.utils.ExtendedViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/iv_download"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:padding="@dimen/card_margin"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:src="@drawable/ic_file_download_white_24dp"/>
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:padding="@dimen/card_margin"
+        android:layout_alignParentRight="true"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:src="@drawable/ic_action_close"/>
+</RelativeLayout>

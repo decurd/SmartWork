@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/card_margin"
+        android:background="@color/bg_vote">
+
+        <TextView
+            android:id="@+id/tv_plan_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_sub_plan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/ll_plan1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:paddingLeft="40dp"-->
+            <!--android:paddingTop="@dimen/card_margin"-->
+            <!--android:paddingBottom="@dimen/card_margin"-->
+            <!--android:paddingRight="@dimen/card_margin"-->
+            <!--android:gravity="center_vertical">-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv_dttm"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="0.3"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--style="@style/TextListMediumPrimary"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv_plan_dtl_cntn"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="0.7"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--style="@style/TextListMedium"/>-->
+
+        <!--</LinearLayout>-->
+
+    </LinearLayout>
+
+</LinearLayout>

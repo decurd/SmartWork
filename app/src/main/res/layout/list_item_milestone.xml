@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="@dimen/card_margin">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rl_photo"
+                android:layout_width="@dimen/list_item_avatar_bg_size"
+                android:layout_height="@dimen/list_item_avatar_bg_size"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/bg_list_profile">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civ_crt_usr_photo"
+                    android:layout_width="@dimen/list_item_avatar_size"
+                    android:layout_height="@dimen/list_item_avatar_size"
+                    android:layout_centerInParent="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ll_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/cfrc_space_margin"
+                android:layout_toRightOf="@id/rl_photo"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_crt_usr_nm_ttl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:text="신청자"
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textColor="@color/text_color_dark_grey"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_crt_usr_nm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_crt_usr_nm_ttl"
+                    android:text="이상협"
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textColor="@color/text_color_dark_grey"
+                    android:textSize="12sp" />
+                <!-- 작성/수정 날짜 -->
+                <TextView
+                    android:id="@+id/tv_crt_dttm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="2015.06.08 16:00"
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textColor="@color/text_color_grey"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/tv_ttl"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_below="@id/ll_user"
+                android:layout_marginLeft="@dimen/cfrc_space_margin"
+                android:layout_toRightOf="@id/rl_photo"
+                android:text="내용"
+                android:textAppearance="?attr/textAppearanceListItemSmall"
+                android:textColor="@color/text_color_black"
+                android:textSize="12dp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/cfrc_space_margin"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:text="시작일 : "
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_start_dt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="2015-07-08 21:00:00"
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:text="상태 : "
+                    android:gravity="right"
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_st_nm"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/textview_margin"
+                    android:layout_weight="0.7"
+                    android:gravity="right"
+                    android:text="대기"
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/cfrc_space_margin"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:text="종료일 : "
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_end_dt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="2015-07-08 21:00:00"
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:gravity="right"
+                    android:text="완료일 : "
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_cplt_dt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/textview_margin"
+                    android:layout_weight="0.7"
+                    android:gravity="right"
+                    android:text="2015-07-08 21:00:00"
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

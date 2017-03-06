@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bottom_border"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="11dp"
+                    android:paddingTop="11dp">
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="18dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_icon_writ" />
+
+                    <EditText
+                        android:id="@+id/et_ttl"
+                        style="@style/TextSNSWriteLinkSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="제목을 입력해주세요."
+                        android:singleLine="true"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/text_color_grey_cntn1"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_cfrc_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_border"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="11dp"
+                    android:paddingTop="11dp"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/iv_cfrc_edit_icon"
+                        android:layout_width="14dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_icon_writ" />
+
+                    <TextView
+                        android:id="@+id/tv_cfrc_st_nm_ttl"
+                        style="@style/TextSNSWriteLinkSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toRightOf="@id/iv_cfrc_edit_icon"
+                        android:text="회의상태"
+                        android:textColor="@color/text_color_black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tv_cfrc_st_nm"
+                        style="@style/TextSNSWriteLinkSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/tv_cfrc_st_nm_ttl"
+                        android:text="대기"
+                        android:textColor="@color/text_color_grey_cntn1"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tv_cfrc_crt_dttm"
+                        style="@style/TextSNSWriteLinkSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="2015-10-08 00:00:00"
+                        android:textColor="@color/text_color_grey_cntn1"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:orientation="horizontal"
+                    android:paddingBottom="11dp"
+                    android:paddingTop="11dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.4"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_cfrc_room_tp_nm"
+                            style="@style/TextSNSWriteLinkSmall"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_weight="0.6"
+                            android:text="오프라인"
+                            android:textColor="@color/text_color_black"
+                            android:textSize="15sp" />
+
+                        <android.support.v7.widget.SwitchCompat
+                            android:id="@+id/sc_cfrc_room_tp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="0.4"
+                            android:checked="false" />
+                    </LinearLayout>
+
+                    <Spinner
+                        android:id="@+id/sp_cfrc_tp"
+                        style="@style/TextSNSMangeBig"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.6"
+                        android:entries="@array/cfrc_tp"
+                        android:spinnerMode="dropdown" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_border"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="11dp"
+                    android:paddingTop="11dp">
+
+                    <ImageView
+                        android:id="@+id/iv_cfrc_dt_icon"
+                        android:layout_width="14dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_icon_writ" />
+
+                    <TextView
+                        android:id="@+id/tv_cfrc_dttm_ttl"
+                        style="@style/TextSNSWriteLinkSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toRightOf="@id/iv_cfrc_dt_icon"
+                        android:text="일시"
+                        android:textColor="@color/text_color_black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tv_dt"
+                        style="@style/TextSNSWriteLinkSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toRightOf="@id/tv_cfrc_dttm_ttl"
+                        android:text="회의날짜"
+                        android:textColor="@color/text_color_grey_cntn1"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tv_priode_tm"
+                        style="@style/TextSNSWriteLinkSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/tv_dt"
+                        android:text="00:00 ~ 00:00"
+                        android:textColor="@color/text_color_grey_cntn1"
+                        android:textSize="15sp" />
+
+                    <Button
+                        android:id="@+id/bt_reserve_room"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/bg_profile_on"
+                        android:text="회의실예약"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_cfrc_room"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_border"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="11dp"
+                    android:paddingTop="11dp">
+
+                    <ImageView
+                        android:id="@+id/iv_cfrc_room_icon"
+                        android:layout_width="14dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_icon_writ" />
+
+                    <TextView
+                        android:id="@+id/tv_cfrc_tm_ttl"
+                        style="@style/TextSNSWriteLinkSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toRightOf="@id/iv_cfrc_room_icon"
+                        android:text="회의실"
+                        android:textColor="@color/text_color_black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tv_cfrc_room_nm"
+                        style="@style/TextSNSWriteLinkSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/tv_cfrc_tm_ttl"
+                        android:text="회의장소"
+                        android:textColor="@color/text_color_grey_cntn1"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_border"
+                    android:paddingTop="15dp">
+
+                    <LinearLayout
+                        android:id="@+id/ll_cfrc_member_ttl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="18dp"
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/ic_icon_person" />
+
+                        <TextView
+                            style="@style/TextSNSWriteLinkSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="참석자"
+                            android:textColor="@color/text_color_black"
+                            android:textSize="15sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ib_add_member"
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
+                                android:layout_gravity="right"
+                                android:src="@drawable/btn_cfrc_plus" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/ll_cfrc_member_ttl"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="5dp">
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv_cfrc_member"
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_cfrc_empty_member"
+                            style="@style/TextSNSWriteLinkSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="참석자를 추가해주세요."
+                            android:textColor="@color/text_color_grey_cntn1"
+                            android:textSize="15sp"
+                            android:visibility="visible" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:orientation="horizontal"
+                    android:paddingBottom="11dp"
+                    android:paddingTop="11dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5">
+
+                        <CheckBox
+                            android:id="@+id/cb_auto_push"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="7dp"
+                            android:text="생성알림"
+                            android:textColor="@color/text_color_black"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5">
+
+                        <CheckBox
+                            android:id="@+id/cb_auto_plan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="7dp"
+                            android:text="일정공개"
+                            android:textColor="@color/text_color_black"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_border"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="11dp"
+                    android:paddingTop="11dp">
+
+                    <ImageView
+                        android:id="@+id/iv_cntn_icon"
+                        android:layout_width="14dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_icon_writ" />
+
+                    <EditText
+                        android:id="@+id/et_cntn"
+                        style="@style/TextListMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/iv_cntn_icon"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:hint="내용을 입력하세요."
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_border"
+                    android:paddingTop="15dp">
+
+                    <LinearLayout
+                        android:id="@+id/ll_cfrc_doc_list_ttl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="18dp"
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/ic_icon_docu" />
+
+                        <TextView
+                            style="@style/TextSNSWriteLinkSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="회의문서자료"
+                            android:textColor="@color/text_color_black"
+                            android:textSize="15sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ib_add_doc"
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
+                                android:layout_gravity="right"
+                                android:src="@drawable/btn_cfrc_plus" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_cfrc_doc_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/ll_cfrc_doc_list_ttl"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tv_cfrc_empty_doc"
+                        style="@style/TextSNSWriteLinkSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/ll_cfrc_doc_list_ttl"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="5dp"
+                        android:text="파일을 추가해주세요."
+                        android:textColor="@color/text_color_grey_cntn1"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_border"
+                    android:paddingTop="15dp">
+
+                    <LinearLayout
+                        android:id="@+id/ll_cfrc_mov_list_ttl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="18dp"
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/ic_icon_movie" />
+
+                        <TextView
+                            style="@style/TextSNSWriteLinkSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="동영상공유자료"
+                            android:textColor="@color/text_color_black"
+                            android:textSize="15sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ib_add_mov"
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
+                                android:layout_gravity="right"
+                                android:src="@drawable/btn_cfrc_plus" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_cfrc_mov_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/ll_cfrc_mov_list_ttl"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tv_cfrc_empty_mov"
+                        style="@style/TextSNSWriteLinkSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/ll_cfrc_mov_list_ttl"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="5dp"
+                        android:text="파일을 추가해주세요."
+                        android:textColor="@color/text_color_grey_cntn1"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_border"
+                    android:paddingTop="15dp">
+
+                    <LinearLayout
+                        android:id="@+id/ll_cfrc_file_list_ttl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="18dp"
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/ic_icon_file" />
+
+                        <TextView
+                            style="@style/TextSNSWriteLinkSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="파일공유자료"
+                            android:textColor="@color/text_color_black"
+                            android:textSize="15sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ib_add_file"
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
+                                android:layout_gravity="right"
+                                android:src="@drawable/btn_cfrc_plus" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_cfrc_file_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/ll_cfrc_file_list_ttl"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tv_cfrc_empty_file"
+                        style="@style/TextSNSWriteLinkSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/ll_cfrc_file_list_ttl"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="5dp"
+                        android:text="파일을 추가해주세요."
+                        android:textColor="@color/text_color_grey_cntn1"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rl_cfrc_rest_cntn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_border"
+                    android:gravity="center_vertical"
+                    android:visibility="gone"
+                    android:paddingBottom="11dp"
+                    android:paddingTop="11dp">
+
+                    <ImageView
+                        android:id="@+id/iv_cntn_rest_cntn_icon"
+                        android:layout_width="14dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_icon_writ" />
+
+                    <EditText
+                        android:id="@+id/et_rest_cntn"
+                        style="@style/TextListMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/iv_cntn_rest_cntn_icon"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:hint="회의록을 입력하세요."
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/rl_cfrc_rest_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottom_border"
+                android:visibility="gone"
+                android:paddingTop="15dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_cfrc_rest_list_ttl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="18dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_icon_docu" />
+
+                    <TextView
+                        style="@style/TextSNSWriteLinkSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="회의결과자"
+                        android:textColor="@color/text_color_black"
+                        android:textSize="15sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/ib_add_rest"
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
+                            android:layout_gravity="right"
+                            android:src="@drawable/btn_cfrc_plus" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_cfrc_rest_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/ll_cfrc_rest_list_ttl"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_cfrc_empty_rest"
+                    style="@style/TextSNSWriteLinkSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/ll_cfrc_rest_list_ttl"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="5dp"
+                    android:text="회의결과자료를 추가해주세요."
+                    android:textColor="@color/text_color_grey_cntn1"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+            <ImageView
+                android:id="@+id/iv_bt_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btn_func_save" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

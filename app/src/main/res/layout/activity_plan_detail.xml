@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:layout_scrollFlags="scroll|enterAlways" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="@dimen/card_margin"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="wrap_content"
+            style="@style/TextVersionInfoMedium"
+            android:text="@string/auth_nm"/>
+
+        <TextView
+            android:id="@+id/tv_usr_nm"
+            android:layout_width="0dp"
+            android:layout_weight="0.7"
+            android:layout_height="wrap_content"
+            style="@style/TextSNSMangeBig" />
+
+    </LinearLayout>
+
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="18dp"
+        android:layout_marginLeft="@dimen/card_margin" android:background="@color/line_color_list_divider"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="@dimen/card_margin"
+            style="@style/TextVersionInfoMedium"
+            android:text="@string/plan_term"/>
+
+        <TextView
+            android:id="@+id/tv_start_dttm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="@dimen/card_margin"
+            style="@style/TextSNSMangeBig" />
+
+        <TextView
+            android:id="@+id/tv_end_dttm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="@dimen/card_margin"
+            style="@style/TextSNSMangeBig" />
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="18dp"
+            android:layout_marginLeft="@dimen/card_margin" android:background="@color/line_color_list_divider"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="@dimen/card_margin"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="wrap_content"
+                style="@style/TextVersionInfoMedium"
+                android:text="@string/plan_ttl"/>
+
+            <TextView
+                android:id="@+id/tv_plan_ttl"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:layout_height="wrap_content"
+                style="@style/TextSNSMangeBig" />
+
+        </LinearLayout>
+
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="18dp"
+            android:layout_marginLeft="@dimen/card_margin" android:background="@color/line_color_list_divider"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="@dimen/card_margin"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="wrap_content"
+                style="@style/TextVersionInfoMedium"
+                android:text="@string/plan_tar_obj"/>
+
+            <TextView
+                android:id="@+id/tv_tar_obj_ttl"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:layout_height="wrap_content"
+                style="@style/TextSNSMangeBig" />
+
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="18dp"
+            android:layout_marginLeft="@dimen/card_margin" android:background="@color/line_color_list_divider"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="@dimen/card_margin"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="wrap_content"
+                style="@style/TextVersionInfoMedium"
+                android:text="@string/place"/>
+
+            <TextView
+                android:id="@+id/tv_place"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:layout_height="wrap_content"
+                style="@style/TextSNSMangeBig" />
+
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="18dp"
+            android:layout_marginLeft="@dimen/card_margin" android:background="@color/line_color_list_divider"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="@dimen/card_margin"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="wrap_content"
+                style="@style/TextVersionInfoMedium"
+                android:text="@string/is_public"/>
+
+            <TextView
+                android:id="@+id/tv_plan_open_yn"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:layout_height="wrap_content"
+                style="@style/TextSNSMangeBig" />
+
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="18dp"
+            android:layout_marginLeft="@dimen/card_margin" android:background="@color/line_color_list_divider"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="@dimen/card_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="wrap_content"
+                style="@style/TextVersionInfoMedium"
+                android:text="@string/descript"/>
+
+            <TextView
+                android:id="@+id/tv_plan_dtl_cntn"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/card_margin"
+                style="@style/TextSNSMangeBig" />
+
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="18dp"
+            android:layout_marginLeft="@dimen/card_margin" android:background="@color/line_color_list_divider"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:id="@+id/ll_bottom_btns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_plan_delete"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_left_btn"
+            android:textColor="@color/white"
+            android:text="@string/plan_delete"/>
+
+        <Button
+            android:id="@+id/btn_plan_modify"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_right_btn"
+            android:textColor="@color/white"
+            android:text="@string/plan_modify"/>
+    </LinearLayout>
+
+</LinearLayout>

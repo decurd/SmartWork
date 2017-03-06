@@ -1,0 +1,169 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+//apply plugin: 'me.tatarka.retrolambda'
+//apply plugin: 'com.android.databinding'
+apply plugin: 'com.google.gms.google-services'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+android {
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/notice.txt'
+    }
+
+    compileSdkVersion 23
+    buildToolsVersion '25.0.0'
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 22
+        versionName "1.0.4"
+        setProperty("archivesBaseName", "i2max-i2smartwork-$versionName")
+        multiDexEnabled true
+    }
+
+//    flavorDimensions "lib", 'code'
+
+    productFlavors {
+//        lib_nia2 {
+//            dimension 'lib'
+//        }
+
+        cs {
+            applicationId "com.i2max.i2smartwork.cs"
+            buildConfigField 'String', 'SERVER_HOST', '"http://m.expertbank.co.kr"'
+            buildConfigField 'String', 'OAUTH_CLIENT_ID', '"DE970DFE51"'
+            buildConfigField 'String', 'OAUTH_CLIENT_SECRET', '"AC10E3D004C051143C7A"'
+            resValue 'string', 'app_name', '"SmartWork app"'
+            resValue 'string', 'intro_title', '"Smart Work Platform"' //intro login
+            resValue 'string', 'version_description', '"i2SmartWork Application\\nFor Android Phone"'
+            //version
+        }
+    }
+
+    dexOptions {
+        incremental true
+        jumboMode true
+        javaMaxHeapSize "4g"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    //구글 서포트 라이브러리
+    compile 'com.android.support:design:23.1.1'
+    //구글 서포트 라이브러리 디자인
+    compile 'com.android.support:cardview-v7:23.1.1'
+    //구글 서포트 라이브러리 카드뷰
+    compile 'com.android.support:recyclerview-v7:23.1.1'
+    //구글 서포트 라이브러리 리사이클뷰
+    compile 'com.google.android.gms:play-services-maps:8.3.0'
+    compile 'com.google.android.gms:play-services-gcm:8.3.0'
+    //구글 서비스 라이브러리
+    compile 'com.google.android.gms:play-services-appindexing:8.3.0'
+    //구글 서비스 라이브러리
+    compile('com.mikepenz:materialdrawer:4.3.0@aar') {
+        transitive = true
+    }
+    // Drawer 메뉴
+    compile('com.digits.sdk.android:digits:1.9.2@aar') {                        // 문자인증
+        transitive = true;
+    }
+    compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {              // crashlytics 버그 관리
+        transitive = true;
+    }
+    compile('com.crashlytics.sdk.android:crashlytics-ndk:1.1.1@aar') {          // crashlytics 버그 관리
+        transitive = true;
+    }
+    compile('com.crashlytics.sdk.android:answers:1.3.6@aar') {
+        // crashlytics 화면 클릭뷰 관리
+        transitive = true;
+    }
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3.1'
+    // leakcanary 메모리누수 관리
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3.1'
+    // leakcanary 메모리누수 관리s
+    compile 'com.squareup.okhttp:okhttp:2.5.+'
+    //HTTP 라이브러리
+    compile 'io.reactivex:rxandroid:0.24.0'
+    //RxAndroid 비동기 처리
+    compile 'com.marshalchen.ultimaterecyclerview:library:0.3.18'
+    //추가기능 리사이클뷰 PTF포함 라이브러리
+    compile 'com.github.bumptech.glide:glide:3.6.0'
+    //이미지 처리 라이브러리
+    compile 'de.hdodenhof:circleimageview:1.3.0'
+    //원형이미지 라이브러리
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.daimajia.easing:library:1.0.1@aar'
+    compile 'com.daimajia.androidanimations:library:1.1.3@aar'
+    //애니메이션 라이브러리
+    compile 'com.prolificinteractive:material-calendarview:0.8.1'
+    //캘린더 라이브러리
+    compile 'com.github.citux:datetimepicker:0.1.2'
+    //DateTime Picker 라이브러리
+    compile 'com.diogobernardino:williamchart:2.0.1'
+    // Chart 라이브러리
+    compile 'com.klinkerapps:link_builder:1.3.0@aar'
+    // TextView 링크 빌더
+    compile 'com.soundcloud.android:android-crop:1.0.1@aar'
+    //이미지크롭 라이브러리
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    //피카소 이미지 라이브러리
+    compile 'com.daimajia.slider:library:1.1.5@aar'
+    //이미지 슬라이드 라이브러리
+    compile 'com.github.clans:fab:1.6.0'
+    //플로팅버튼 라이브러리
+    compile 'com.google.code.gson:gson:2.4'
+    // JSON 데이터 처리
+    compile 'io.realm:realm-android:0.87.1'
+    // realm 모바일 DB
+    compile 'com.android.support:multidex:1.0.1'
+    // Enabling multidex support.
+}
+
+crashlytics {
+    enableNdk true
+    androidNdkOut 'src/main/obj'
+    androidNdkLibsOut 'src/main/libs'
+}

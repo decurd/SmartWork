@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="50dp"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rl_usr_photo"
+            android:layout_width="@dimen/small_avatar_bg_size"
+            android:layout_height="@dimen/small_avatar_bg_size"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/bg_menu_profile">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/civ_crt_usr_photo"
+                android:layout_width="@dimen/small_avatar_size"
+                android:layout_height="@dimen/small_avatar_size"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/ib_del_member"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_del_small"/>
+
+        <TextView
+            android:id="@+id/tv_usr_nm"
+            style="@style/TextListBigBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_usr_photo"
+            android:layout_marginTop="4dp"
+            android:singleLine="true"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tv_cfrc_usr_flag_nm"
+            style="@style/TextListBigBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_usr_nm"
+            android:layout_marginTop="4dp"
+            android:singleLine="true"
+            android:text="" />
+
+    </RelativeLayout>
+</LinearLayout>

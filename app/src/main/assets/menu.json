@@ -1,0 +1,158 @@
+{
+  "statusCode":"0",
+  "statusInfo":{
+    "list_menu":[
+      {
+        "menu_no": 1000000,
+        "menu_order": 1,
+        "menu_nm": "의사소통",
+        "upper_menu_no": 0,
+        "relate_image_path": "/",
+        "relate_image_nm": "gnb_step1",
+        "menu_assign": "ALL",
+        "program_file_nm": "dir",
+        "menu_url": "/",
+        "child_yn": "Y",
+        "child_list": [
+          {
+            "menu_no": 1010000,
+            "menu_order": 1,
+            "menu_nm": "나의 피드",
+            "upper_menu_no": 1000000,
+            "relate_image_path": "/",
+            "relate_image_nm": "/",
+            "menu_assign": "ALL",
+            "program_file_nm": "I2cSnsHomeByFollow",
+            "menu_url": "/sns/post/i2cSnsHome.do?post_mode=FOLLOW",
+            "child_yn": "N"
+          },
+          {
+            "menu_no": 1020000,
+            "menu_order": 2,
+            "menu_nm": "비즈니스 그룹",
+            "upper_menu_no": 1000000,
+            "relate_image_path": "/",
+            "relate_image_nm": "/",
+            "menu_assign": "ALL",
+            "program_file_nm": "I2cSnsHomeByBizGroup",
+            "menu_url": "/sns/group/listSnsGroupScr.do",
+            "child_yn": "N"
+          },
+          {
+            "menu_no": 1030000,
+            "menu_order": 3,
+            "menu_nm": "전문가 상담",
+            "upper_menu_no": 1000000,
+            "relate_image_path": "/",
+            "relate_image_nm": "/",
+            "menu_assign": "ALL",
+            "program_file_nm": "expertList",
+            "menu_url": "/sws/experts/expertListScr.do",
+            "child_yn": "N"
+          },
+          {
+            "menu_no": 1040000,
+            "menu_order": 4,
+            "menu_nm": "기업 검색",
+            "upper_menu_no": 1000000,
+            "relate_image_path": "/",
+            "relate_image_nm": "/",
+            "menu_assign": "ALL",
+            "program_file_nm": "listEntUser",
+            "menu_url": "/sws/entUser/listEntUserScr.do",
+            "child_yn": "N"
+          }
+        ]
+      },
+      {
+        "menu_no": 2000000,
+        "menu_order": 2,
+        "menu_nm": "업무",
+        "upper_menu_no": 0,
+        "relate_image_path": "/",
+        "relate_image_nm": "gnb_step2",
+        "menu_assign": "ALL",
+        "program_file_nm": "dir",
+        "menu_url": "/",
+        "child_yn": "Y",
+        "child_list": [
+          {
+            "menu_no": 2010000,
+            "menu_order": 1,
+            "menu_nm": "업무 관리",
+            "upper_menu_no": 2000000,
+            "relate_image_path": "/",
+            "relate_image_nm": "/",
+            "menu_assign": "ALL",
+            "program_file_nm": "I2cSnsTaskList",
+            "menu_url": "/sns/task/listSnsTaskScr.do",
+            "child_yn": "N"
+          },
+          {
+            "menu_no": 2020000,
+            "menu_order": 2,
+            "menu_nm": "일정 관리",
+            "upper_menu_no": 2000000,
+            "relate_image_path": "/",
+            "relate_image_nm": "/",
+            "menu_assign": "ALL",
+            "program_file_nm": "I2cSnsPlanList",
+            "menu_url": "/sns/plan/listSnsPlanScr.do?tar_obj_tp_cd=USER",
+            "child_yn": "N"
+          }
+        ]
+      },
+      {
+        "menu_no": 3000000,
+        "menu_order": 3,
+        "menu_nm": "정보/지식",
+        "upper_menu_no": 0,
+        "relate_image_path": "/",
+        "relate_image_nm": "gnb_step3",
+        "menu_assign": "ALL",
+        "program_file_nm": "dir",
+        "menu_url": "/",
+        "child_yn": "Y",
+        "child_list": [
+          {
+            "menu_no": 3010000,
+            "menu_order": 1,
+            "menu_nm": "정부지원사업",
+            "upper_menu_no": 3000000,
+            "relate_image_path": "/",
+            "relate_image_nm": "/",
+            "menu_assign": "ALL",
+            "program_file_nm": "listSupport",
+            "menu_url": "/sws/support/listSupportScr.do",
+            "child_yn": "N"
+          },
+          {
+            "menu_no": 3020000,
+            "menu_order": 2,
+            "menu_nm": "온라인 진단도구",
+            "upper_menu_no": 3000000,
+            "relate_image_path": "/",
+            "relate_image_nm": "/",
+            "menu_assign": "ALL",
+            "program_file_nm": "online",
+            "menu_url": "/sws/onl/listOnlineScr.do",
+            "child_yn": "N"
+          },
+          {
+            "menu_no": 3030000,
+            "menu_order": 3,
+            "menu_nm": "공지사항",
+            "upper_menu_no": 3000000,
+            "relate_image_path": "/",
+            "relate_image_nm": "/",
+            "menu_assign": "ALL",
+            "program_file_nm": "I2cSnsNoticeList",
+            "menu_url": "/sns/notice/listSnsNoticeScr.do",
+            "child_yn": "N"
+          }
+        ]
+      }
+    ]
+  },
+  "statusMessage":"정상적으로 처리되었습니다."
+}

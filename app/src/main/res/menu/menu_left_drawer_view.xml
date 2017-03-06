@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_notify"
+            android:icon="@drawable/ic_menu_notify"
+            android:title="@string/notify" />
+        <item
+            android:id="@+id/nav_community"
+            android:icon="@drawable/ic_menu_sns"
+            android:title="@string/connect_community" />
+        <item
+            android:id="@+id/nav_calendar"
+            android:icon="@drawable/ic_menu_plan"
+            android:title="@string/plan" />
+        <item
+            android:id="@+id/nav_meeting_manage"
+            android:icon="@drawable/ic_menu_conference"
+            android:title="@string/cfrc_manage" />
+        <item
+            android:id="@+id/nav_task"
+            android:icon="@drawable/ic_menu_task"
+            android:title="@string/task" />
+        <item
+            android:id="@+id/nav_web"
+            android:icon="@drawable/ic_menu_sns"
+            android:title="@string/web" />
+        <item
+            android:id="@+id/nav_memo"
+            android:icon="@drawable/ic_menu_memo"
+            android:title="@string/memo" />
+        <!--<item-->
+            <!--android:id="@+id/nav_work"-->
+            <!--android:icon="@drawable/ic_menu_work"-->
+            <!--android:title="@string/work" />-->
+    </group>
+
+    <item android:title="">
+        <menu>
+            <!-- 밑줄 긋기용 -->
+        </menu>
+    </item>
+
+</menu>

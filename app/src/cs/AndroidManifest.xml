@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.i2max.i2smartwork" >
+
+    <permission
+        android:name="com.i2max.i2smartwork.locationapi.maps.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.i2max.i2smartwork.locationapi.maps.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <permission android:name="com.i2max.i2smartwork.gcm.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.i2max.i2smartwork.gcm.permission.C2D_MESSAGE" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:hardwareAccelerated="true"
+        android:theme="@style/Theme.DesignDemo" >
+
+        <activity android:name=".IntroLoginActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".I2SearchActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Translucent"/>
+        <activity android:name=".common.push.PushListActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSPersonalFunctionActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSDetailProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSDetailGroupActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSWriteActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSReplyWriteActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSDetailPostActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSPersonSearchActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSGroupSearchActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSFileListActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSThumbnailListActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSPersonalConfigActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSVersionInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSConfigProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSConfigPasswordActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSGroupFunctionActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSGroupMemberActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSGroupJoinApplyListActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSGroupCreateActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSConfigGroupProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSImageSliderActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.sns.SNSSearchActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.plan.PlanDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.plan.PlanCreateActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.plan.PlanListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
+        <activity android:name=".common.conference.ConferenceDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.conference.ConferenceWriteActivity" android:screenOrientation="portrait" />
+        <activity android:name=".common.conference.ConferenceOnlineActivity" android:screenOrientation="portrait" />
+        <activity android:name=".common.conference.ConferenceFileListActivity" android:screenOrientation="portrait" />
+        <activity android:name=".common.conference.ConferenceRoomScheduleActivity" android:screenOrientation="portrait" />
+        <activity android:name=".common.task.TaskDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.task.TaskWriteActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.memo.MemoDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.memo.MemoWriteActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.work.WorkDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".common.web.WebviewActivity" android:screenOrientation="portrait"/>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="8840c0a609a7d877cba29bfada5e369eb098e9d4" />
+
+        <!-- [START gcm_receiver] -->
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.i2max.i2smartwork" />
+            </intent-filter>
+        </receiver>
+        <!-- [END gcm_receiver] -->
+
+        <!-- [START gcm_listener_service] -->
+        <service
+            android:name="com.i2max.i2smartwork.gcm.MyGcmListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <!-- [END gcm_listener_service] -->
+
+        <!-- [START instanceId_listener_service] -->
+        <service
+            android:name="com.i2max.i2smartwork.gcm.MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <!-- [END instanceId_listener_service] -->
+
+        <!-- [START gcm_registration_service] -->
+        <service
+            android:name="com.i2max.i2smartwork.gcm.RegistrationIntentService"
+            android:exported="false">
+        </service>
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <!-- [END gcm_registration_service] -->
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyAbq3v0xHHsGn8ivDRUzbla-Cnu6ILTp40" />
+    </application>
+
+</manifest>

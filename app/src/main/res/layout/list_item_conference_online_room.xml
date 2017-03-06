@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:padding="@dimen/card_margin">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rl_photo"
+                android:layout_width="@dimen/list_item_avatar_bg_size"
+                android:layout_height="@dimen/list_item_avatar_bg_size"
+                android:background="@drawable/bg_list_profile"
+                android:layout_alignParentLeft="true">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civ_crt_usr_photo"
+                    android:layout_width="@dimen/list_item_avatar_size"
+                    android:layout_height="@dimen/list_item_avatar_size"
+                    android:layout_centerInParent="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ll_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@id/rl_photo"
+                android:layout_marginLeft="@dimen/cfrc_space_margin"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_crt_usr_nm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textColor="@color/text_color_dark_grey"
+                    android:textSize="12sp"
+                    android:hint="이름"/>
+                <!-- 부서정보 ? -->
+                <!-- 작성/수정 날짜 -->
+                <TextView
+                    android:id="@+id/tv_crt_dttm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textColor="@color/text_color_grey"
+                    android:textSize="12sp"
+                    android:hint="게시/수정 일"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_cfrc_ttl"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_below="@id/ll_user"
+                android:layout_toRightOf="@id/rl_photo"
+                android:layout_marginLeft="@dimen/cfrc_space_margin"
+                android:textAppearance="?attr/textAppearanceListItemSmall"
+                android:textColor="@color/text_color_black"
+                android:hint="내용"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+            <RelativeLayout
+                android:id="@+id/ll_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_photo"
+                android:layout_marginTop="@dimen/cfrc_space_margin"
+                android:orientation="horizontal">
+                <TextView android:id="@+id/tv_cfrc_term"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textSize="12sp"
+                    android:hint="2015-07-23 18:00~19:00"/>
+
+                <!-- 회의상태 -->
+                <LinearLayout
+                    android:id="@+id/ll_st"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_cfrc_st"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                        android:src="@drawable/ic_icon_waiting"/>
+                    <TextView
+                        android:id="@+id/tv_cfrc_st_nm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceListItemSmall"
+                        android:textSize="12sp"
+                        android:layout_gravity="right"
+                        android:hint="상태"
+                        android:layout_marginRight="@dimen/textview_margin" />
+
+                </LinearLayout>
+                <!-- 회의타입 -->
+                <LinearLayout
+                    android:id="@+id/ll_tp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/ll_st"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_cfrc_tp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                        android:src="@drawable/ic_icon_cam"/>
+                    <TextView
+                        android:id="@+id/tv_cfrc_tp_nm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceListItemSmall"
+                        android:textSize="12sp"
+                        android:hint="타입"
+                        android:layout_marginRight="@dimen/textview_margin" />
+                </LinearLayout>
+                <!-- 온/오프라인 타입 -->
+                <LinearLayout
+                    android:id="@+id/ll_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/ll_tp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/iv_cfrc_room_tp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                        android:src="@drawable/ic_icon_online"/>
+                    <TextView
+                        android:id="@+id/tv_cfrc_room_tp_nm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceListItemSmall"
+                        android:textSize="12sp"
+                        android:hint="온라인"
+                        android:layout_marginRight="@dimen/textview_margin" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ll_info2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_info"
+                android:layout_marginTop="@dimen/cfrc_space_margin"
+                android:orientation="horizontal">
+                <TextView android:id="@+id/tv_cfrc_file_conv_rslt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:textAppearance="?attr/textAppearanceListItemSmall"
+                    android:textSize="12sp"
+                    android:hint="0개 파일 변환완료"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ll_footer_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_info2"
+                android:layout_marginTop="@dimen/cfrc_space_margin"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btn_start_cfrc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="회의참가"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/text_color_dark_grey"
+                    style="@style/TextSNSMangeBig"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

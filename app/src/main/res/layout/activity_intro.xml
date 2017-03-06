@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="58dp"
+    android:paddingRight="58dp"
+    android:paddingBottom="23dp"
+    android:background="@drawable/intro_back_gradient">
+
+    <ImageView
+        android:id="@+id/iv_intro_logo"
+        android:layout_width="160dp"
+        android:layout_height="52dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/img_logo"/>
+
+    <View android:layout_width="match_parent" android:layout_height="1dp"
+        android:layout_marginTop="13dp"
+        android:layout_below="@id/iv_intro_logo"
+        android:background="@color/line_color_list_divider"/>
+
+    <TextView
+        android:id="@+id/tv_intro_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/iv_intro_logo"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:visibility="visible"/>
+
+    <TextView
+        android:id="@+id/tv_footer_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:textSize="8sp"
+        android:textColor="@color/white"
+        android:text="2015년 스마트워크 서비스 도입지원 사업서비스 개발 적용 지원시스템"/>
+
+    <ImageView
+        android:id="@+id/iv_footer_logos"
+        android:layout_width="240dp"
+        android:layout_height="39dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/tv_footer_title"
+        android:gravity="center"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/ic_footer_logo2"/>
+
+    <LinearLayout
+        android:id="@+id/group_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:layout_above="@+id/iv_footer_logos"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_intro_id"/>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/card_margin">
+                <EditText
+                    android:id="@+id/et_login_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="26dp"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"
+                    android:background="@null"
+                    android:textSize="14dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/text_color_light"
+                    android:hint="@string/login_hint"/>
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="5dp" android:background="@color/line_color_list_divider"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_intro_pass"/>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/card_margin">
+                <EditText
+                    android:id="@+id/et_login_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:hint="@string/password_hint"
+                    android:textSize="14dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/text_color_light"
+                    android:background="@null"
+                    android:layout_marginTop="@dimen/edittext_margin"/>
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="5dp" android:background="@color/line_color_list_divider"/>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="24dp"
+            style="@style/BtnLoginText"
+            android:text="LOGIN"
+            android:background="@drawable/btn_intro_login" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <CheckBox
+                    android:id="@+id/cb_auto_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:textColor="@android:color/white"
+                    android:text="@string/auto_login"
+                    android:textSize="@dimen/auto_login_size"
+                    android:layout_marginLeft="7dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:textColor="@android:color/white"
+                    android:text="개인정보보호정책"
+                    android:textSize="@dimen/auto_login_size"
+                    android:layout_marginLeft="7dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/personinfo"
+                    android:layout_weight="1"
+                    android:gravity="center" />
+
+
+                <com.digits.sdk.android.DigitsAuthButton
+                    android:id="@+id/auth_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_menu_sample">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_user_setting"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/ic_action_setting"/>
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Force Crash!"
+            android:onClick="forceCrash"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp">
+
+        <RelativeLayout
+            android:layout_width="@dimen/menu_avatar_bg_size"
+            android:layout_height="@dimen/menu_avatar_bg_size">
+
+            <ImageView
+                android:layout_width="@dimen/menu_avatar_bg_size"
+                android:layout_height="@dimen/menu_avatar_bg_size"
+                android:src="@drawable/bg_menu_profile"
+                android:alpha="0.6"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/civ_usr_photo"
+                android:layout_width="@dimen/menu_avatar_size"
+                android:layout_height="@dimen/menu_avatar_size"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="3dp">
+
+            <TextView
+                android:id="@+id/tv_usr_nm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextMenuBigBold"/>
+
+            <TextView
+                android:id="@+id/tv_pos_nm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                style="@style/TextMenuBig"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_dept_nm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            style="@style/TextMenuMedium"/>
+
+        <TextView
+            android:id="@+id/tv_self_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            style="@style/TextMenuBig"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="14dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:src="@drawable/ic_telephone"/>
+
+            <TextView
+                android:id="@+id/tv_phn_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                style="@style/TextMenuMedium"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:src="@drawable/ic_mail"/>
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                style="@style/TextMenuMedium"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
