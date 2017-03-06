@@ -5,10 +5,13 @@ import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -34,6 +37,7 @@ import android.widget.Toast;
 import com.android.datetimepicker.date.DatePickerDialog;
 import com.bumptech.glide.Glide;
 import com.google.gson.internal.LinkedTreeMap;
+import com.i2max.i2smartwork.Manifest;
 import com.i2max.i2smartwork.R;
 import com.i2max.i2smartwork.common.conference.ConferenceDetailActivity;
 import com.i2max.i2smartwork.common.memo.MemoDetailActivity;
@@ -72,6 +76,7 @@ import rx.schedulers.Schedulers;
  * Created by shlee on 2015. 10. 16..
  */
 public class TaskWriteActivity extends BaseAppCompatActivity implements DatePickerDialog.OnDateSetListener {
+    private static final int MY_PERMISSIONS_REQUEST_READ_STORAGE = 3;
     static String TAG = TaskWriteActivity.class.getSimpleName();
 
     protected final int REQUEST_FILE_KITKAT_INTENT_CALLED = 2103; //키캣 이상 문서파일 열기 처리
@@ -201,7 +206,26 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
         mIbAddFiles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openFileChooser(REQUEST_FILE, REQUEST_FILE_KITKAT_INTENT_CALLED);
+                // Toast.makeText(TaskWriteActivity.this, "클릭하였습니다", Toast.LENGTH_SHORT).show();
+                // 갤러리 사용권한 체크(사용권한이 없을 경우 -1)
+                if (ContextCompat.checkSelfPermission(TaskWriteActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                // 사용권한이 없을 경우
+
+                    // 최초 권한 요청인지, 혹은 사용자에 의한 재요청인지 확인
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(TaskWriteActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                        // 사용자가 임의로 권한을 취소시킨 경우
+                        // 권한 재요청
+                        ActivityCompat.requestPermissions(TaskWriteActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                                MY_PERMISSIONS_REQUEST_READ_STORAGE);
+                    } else {
+                        // 최초로 권한을 요청하는 경우 (첫실행)
+                        ActivityCompat.requestPermissions(TaskWriteActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                                MY_PERMISSIONS_REQUEST_READ_STORAGE);
+                    }
+                } else {
+                    // 사용 권한이 있음을 확인한 경우
+                    openFileChooser(REQUEST_FILE, REQUEST_FILE_KITKAT_INTENT_CALLED);
+                }
             }
         });
 
@@ -261,6 +285,26 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
             mAdapter.notifyDataSetChanged();
         }
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_READ_STORAGE: {
+                // 갤러리 사용권한에 대한 콜백을 받음
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // 권한 동의 버튼 선택
+                    openFileChooser(REQUEST_FILE, REQUEST_FILE_KITKAT_INTENT_CALLED);
+                } else {
+                    // 사용자가 권한 동의를 안 함
+                    // 권한 동의안함 버튼 선택
+                    Toast.makeText(this, "권한 사용을 동의해 주셔야 이용이 가능합니다", Toast.LENGTH_LONG).show();
+                    // finish(); // 확인해 봐야 한다.
+                }
+                return;
+            }
+            // 예외 케이스
+        }
     }
 
     public void loadEditViewTask() {
