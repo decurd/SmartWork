@@ -719,6 +719,7 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
     }
 
     public void setFilesLayoutByEdit(LinearLayout targetLayout, TextView tvEmpty, int mode, Object object) {
+
         final List<LinkedTreeMap<String, String>> listMap = (List<LinkedTreeMap<String, String>>) object;
 
         if (listMap == null || listMap.size() <= 0) {
@@ -886,6 +887,7 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
     }
 
     public void addFilesLayout(LinearLayout targetLayout, TextView tvEmpty, int mode, Uri uri) {
+
         if (TextUtils.isEmpty(uri.toString())) return;
 
         Map<String, String> file = new HashMap<String, String>();
@@ -917,6 +919,9 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
     }
 
     public void addFilesLayout(final LinearLayout targetLayout, TextView tvEmpty, final int mode, String fileNm) {
+
+        Log.e("decurd", "addFilesLayout: 실행");
+
         if (TextUtils.isEmpty(fileNm)) return;
 
         //addFilesView
@@ -930,6 +935,8 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
         //확장자에 따른 아이콘 변경처리
         FileUtil.setFileExtIcon(ivIcFileExt, fileNm);
         tvFileNm.setText(fileNm);
+
+
 
         ibDel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -948,7 +955,7 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
                             mFileList.remove(positoin);
                         }
                         ((ViewGroup) fileView.getParent()).removeView(fileView);
-                        ((ViewGroup) fileView.getParent()).invalidate();
+                        // ((ViewGroup) fileView.getParent()).invalidate(); // 해당 로직을 제거하니 에러가 없어짐
                         break;
                     case REQUEST_REST: //i2conference 앱에서만 등록/수정?
                     case REQUEST_REST_KITKAT_INTENT_CALLED:
@@ -973,6 +980,7 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
     }
 
     public void setFileVisible(int mode) {
+        Log.e("decurd", "setFileVisible: 실행");
         switch (mode) {
             case REQUEST_FILE:
             case REQUEST_FILE_KITKAT_INTENT_CALLED:
