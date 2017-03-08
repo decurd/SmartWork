@@ -909,6 +909,7 @@ public class SNSWriteActivity extends BaseAppCompatActivity {
             DialogUtil.showCircularProgressDialog(SNSWriteActivity.this);
 
             Uri uri = Uri.parse(((List<Uri>) uploadFileInfo.get("uri_list")).get(uploadedCnt).toString());
+            Log.e(TAG, "uri: " + ((List<Uri>) uploadFileInfo.get("uri_list")).get(uploadedCnt).toString() );
             File file = new File(FileUtil.getPath(this, uri));
 
             String fileNm = ((List<String>) uploadFileInfo.get("nm_list")).get(uploadedCnt);
@@ -926,7 +927,7 @@ public class SNSWriteActivity extends BaseAppCompatActivity {
                         public void onCompleted() {
                             Log.d(TAG, "uploadFile onCompleted");
                             DialogUtil.removeCircularProgressDialog();
-                            uploadedCnt++;
+                            uploadedCnt++;  // 현재 업로드 처리된 갯수
                             if (uploadedCnt >= ((List<Uri>) uploadFileInfo.get("uri_list")).size()) {
                                 saveFilesPost();
                             } else {
