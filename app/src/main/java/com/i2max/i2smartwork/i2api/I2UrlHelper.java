@@ -1417,13 +1417,12 @@ public class I2UrlHelper {
         }
 
         public static Request getListSnsTaskFile(String tar_obj_id) {
-            Log.e("","getListSnsTaskFile cfrcId = "+ tar_obj_id);
             StringBuilder builder = new StringBuilder();
             builder.append(NetworkConstant.SERVER_HOST);
             builder.append(LIST_SNS_TASK_FILE);
 
             RequestBody formBody = new FormEncodingBuilder()
-                    .add("task_id", tar_obj_id)
+                    .add("tar_obj_id", tar_obj_id)
                     .build();
 
             return getTokenRequest(builder.toString(), formBody);
@@ -1500,11 +1499,14 @@ public class I2UrlHelper {
                             taskFormBuilder.add("file_nm", file.get("file_nm"));
                             taskFormBuilder.add("file_id", file.get("file_id"));
                             taskFormBuilder.add("file_tp_cd", file.get("file_tp_cd")); //FILE
-                            taskFormBuilder.add("tar_obj_tp_cd", file.get("tar_obj_tp_cd")); //TASK
-                            taskFormBuilder.add("tar_file_tp_cd", file.get("tar_file_tp_cd"));  // GNL|REST
+                            taskFormBuilder.add("tar_obj_tp_cd", "USER"); // 이부분 NULL값이면 에러가 남
+                            // taskFormBuilder.add("tar_obj_tp_cd", file.get("tar_obj_tp_cd")); // 원래는 주석처리
+                            taskFormBuilder.add("tar_file_tp_cd", "FEED");
+                            //taskFormBuilder.add("tar_file_tp_cd", file.get("tar_file_tp_cd"));  // GNL|REST
                             taskFormBuilder.add("phscl_file_nm", file.get("phscl_file_nm"));
                             taskFormBuilder.add("file_ext", file.get("file_ext"));
                             taskFormBuilder.add("file_size", file.get("file_size"));
+                            taskFormBuilder.add("file_path", file.get("file_path"));
                             taskFormBuilder.add(CodeConstant.ATTACH_ST, file.get(CodeConstant.ATTACH_ST)); //""?"N":기존파일, "Y" 신규파일, "D" 기존파일삭제 ??TODO 회의랑 다른지 확인
                         }
 
