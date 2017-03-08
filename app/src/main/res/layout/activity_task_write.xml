@@ -337,10 +337,11 @@
                 </RelativeLayout>
 
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bottom_border"
+                    android:orientation="vertical"
                     android:paddingTop="15dp">
 
                     <LinearLayout
@@ -380,16 +381,21 @@
                                 android:src="@drawable/btn_cfrc_plus" />
                         </LinearLayout>
                     </LinearLayout>
-
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="10dp" />
+                    <LinearLayout
+                        android:id="@+id/ll_task_rest_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:orientation="vertical"
+                        android:visibility="gone" />
                     <LinearLayout
                         android:id="@+id/ll_task_file_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_below="@id/ll_task_file_list_ttl"
-                        android:layout_marginBottom="16dp"
                         android:layout_marginLeft="24dp"
-                        android:layout_marginTop="5dp"
                         android:orientation="vertical"
                         android:visibility="gone" />
 
@@ -398,15 +404,16 @@
                         style="@style/TextSNSWriteLinkSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_below="@id/ll_task_file_list_ttl"
-                        android:layout_marginBottom="16dp"
                         android:layout_marginLeft="24dp"
                         android:layout_marginTop="5dp"
                         android:text="파일을 추가해주세요."
                         android:textColor="@color/text_color_grey_cntn1"
                         android:textSize="15sp" />
-                </RelativeLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="15dp" />
+                </LinearLayout>
             </LinearLayout>
             <RelativeLayout
                 android:id="@+id/rl_task_rest_list"
@@ -454,7 +461,7 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <LinearLayout
+                <!--<LinearLayout
                     android:id="@+id/ll_task_rest_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -464,7 +471,7 @@
                     android:layout_marginLeft="24dp"
                     android:layout_marginTop="5dp"
                     android:orientation="vertical"
-                    android:visibility="gone" />
+                    android:visibility="gone" />-->
 
                 <TextView
                     android:id="@+id/tv_task_empty_rest"
