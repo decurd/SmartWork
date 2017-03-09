@@ -4,293 +4,324 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
-                <LinearLayout
-                    android:layout_height="match_parent"
-                    android:layout_width="wrap_content"
-                    android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/activity_vertical_margin"
-                        android:paddingRight="@dimen/activity_vertical_margin"
-                        android:background="@drawable/bottom_border"
-                        android:orientation="vertical">
-                        <TextView
-                            android:id="@+id/tv_ttl"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="18dp"
-                            android:layout_marginBottom="10dp"
-                            android:textAppearance="?attr/textAppearanceListItem"
-                            android:textColor="@color/text_color_black"
-                            android:textStyle="bold"
-                            android:textSize="15sp" />
-                        <TextView
-                            android:id="@+id/tv_crt_dttm"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="18dp"
-                            android:textAppearance="?attr/textAppearanceListItemSmall"
-                            android:textColor="@color/text_color_dark_grey"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/activity_vertical_margin"
-                        android:paddingRight="@dimen/activity_vertical_margin"
-                        android:background="@drawable/bottom_border">
-                        <TextView
-                            android:id="@+id/tv_usr_ttl"
-                            android:layout_width="90dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_marginTop="24dp"
-                            android:layout_marginBottom="24dp"
-                            android:textAppearance="?attr/textAppearanceListItem"
-                            android:textColor="@color/text_color_black"
-                            android:text="신청자"
-                            android:textSize="15sp" />
-                        <RelativeLayout
-                            android:id="@+id/rl_photo"
-                            android:layout_width="@dimen/list_item_avatar_bg_size"
-                            android:layout_height="@dimen/list_item_avatar_bg_size"
-                            android:layout_toRightOf="@id/tv_usr_ttl"
-                            android:layout_centerVertical="true"
-                            android:background="@drawable/bg_list_profile">
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                android:id="@+id/civ_crt_usr_photo"
-                                android:layout_width="@dimen/list_item_avatar_size"
-                                android:layout_height="@dimen/list_item_avatar_size"
-                                android:layout_centerInParent="true"/>
-                        </RelativeLayout>
-                        <TextView
-                            android:id="@+id/tv_crt_usr_nm"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/rl_photo"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="2dp"
-                            android:textAppearance="?attr/textAppearanceListItemSmall"
-                            android:textColor="@color/text_color_grey_cntn1"
-                            android:textSize="15sp" />
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/activity_vertical_margin"
-                        android:paddingRight="@dimen/activity_vertical_margin"
-                        android:background="@drawable/bottom_border">
-                        <TextView
-                            android:id="@+id/tv_st_ttl"
-                            android:layout_width="90dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
-                            android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
-                            android:textAppearance="?attr/textAppearanceListItem"
-                            android:textColor="@color/text_color_black"
-                            android:textSize="15sp"
-                            android:text="상태"/>
-                        <TextView
-                            android:id="@+id/tv_st_nm"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/tv_st_ttl"
-                            android:layout_centerVertical="true"
-                            android:textAppearance="?attr/textAppearanceListItemSmall"
-                            android:textColor="@color/text_color_grey_cntn1"
-                            android:textSize="15sp"/>
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/activity_vertical_margin"
-                        android:paddingRight="@dimen/activity_vertical_margin"
-                        android:background="@drawable/bottom_border">
-                        <TextView
-                            android:id="@+id/tv_term_ttl"
-                            android:layout_width="90dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
-                            android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
-                            android:textAppearance="?attr/textAppearanceListItem"
-                            android:textColor="@color/text_color_black"
-                            android:text="기간"/>
-                        <TextView
-                            android:id="@+id/tv_term"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/tv_term_ttl"
-                            android:layout_centerVertical="true"
-                            android:textAppearance="?attr/textAppearanceListItemSmall"
-                            android:textColor="@color/text_color_grey_cntn1"
-                            android:textSize="15sp"/>
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/activity_vertical_margin"
-                        android:paddingRight="@dimen/activity_vertical_margin"
-                        android:background="@drawable/bottom_border">
-                        <TextView
-                            android:id="@+id/tv_tar_obj_tp_nm"
-                            android:layout_width="90dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
-                            android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
-                            android:textAppearance="?attr/textAppearanceListItem"
-                            android:textColor="@color/text_color_black"
-                            android:textSize="15sp"
-                            android:text="회의"/>
-                        <TextView
-                            android:id="@+id/tv_tar_obj_ttl"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/tv_tar_obj_tp_nm"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="9dp"
-                            android:textAppearance="?attr/textAppearanceListItemSmall"
-                            android:textSize="15sp"/>
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/activity_vertical_margin"
-                        android:paddingRight="@dimen/activity_vertical_margin"
-                        android:background="@drawable/bottom_border">
-                        <TextView
-                            android:id="@+id/tv_impt_tp_nm_ttl"
-                            android:layout_width="90dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
-                            android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
-                            android:textAppearance="?attr/textAppearanceListItem"
-                            android:textColor="@color/text_color_black"
-                            android:textSize="15sp"
-                            android:text="중요도"/>
-                        <TextView
-                            android:id="@+id/tv_impt_tp_nm"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/tv_impt_tp_nm_ttl"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="9dp"
-                            android:textAppearance="?attr/textAppearanceListItemSmall"
-                            android:textColor="@color/text_color_grey_cntn1"
-                            android:textSize="15sp"/>
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/activity_vertical_margin"
-                        android:paddingRight="@dimen/activity_vertical_margin"
-                        android:background="@drawable/bottom_border">
-                        <TextView
-                            android:id="@+id/tv_ord_ttl"
-                            android:layout_width="90dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
-                            android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
-                            android:textAppearance="?attr/textAppearanceListItem"
-                            android:textColor="@color/text_color_black"
-                            android:textSize="15sp"
-                            android:text="작업순서"/>
-                        <TextView
-                            android:id="@+id/tv_ord"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/tv_ord_ttl"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="9dp"
-                            android:textAppearance="?attr/textAppearanceListItemSmall"
-                            android:textColor="@color/text_color_grey_cntn1"
-                            android:textSize="15sp"/>
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:id="@+id/rl_cntn"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/activity_vertical_margin"
-                        android:paddingRight="@dimen/activity_vertical_margin"
-                        android:background="@drawable/bottom_border">
-                        <TextView
-                            android:id="@+id/tv_cntn_ttl"
-                            android:layout_width="90dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
-                            android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
-                            android:textAppearance="?attr/textAppearanceListItem"
-                            android:textColor="@color/text_color_black"
-                            android:textSize="15sp"
-                            android:text="내용"/>
-                        <TextView
-                            android:id="@+id/tv_cntn"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/tv_cntn_ttl"
-                            android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
-                            android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
-                            android:textAppearance="?attr/textAppearanceListItem"
-                            android:textColor="@color/text_color_grey_cntn1"
-                            android:textSize="15sp" />
-                    </RelativeLayout>
-                    <LinearLayout
-                        android:id="@+id/ll_doc_file_list"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/activity_vertical_margin"
-                        android:paddingRight="@dimen/activity_vertical_margin"
-                        android:paddingBottom="@dimen/cfrc_vertical_margin_small"
-                        android:orientation="vertical"
-                        android:background="@drawable/bottom_border"
-                        android:visibility="gone">
-                    </LinearLayout>
 
-                    <RelativeLayout
-                        android:id="@+id/rl_rest_cntn"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/activity_vertical_margin"
-                        android:paddingRight="@dimen/activity_vertical_margin"
-                        android:background="@drawable/bottom_border">
-                        <TextView
-                            android:id="@+id/tv_rest_cntn_ttl"
-                            android:layout_width="90dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
-                            android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
-                            android:textAppearance="?attr/textAppearanceListItem"
-                            android:textColor="@color/text_color_black"
-                            android:textSize="15sp"
-                            android:text="작업록"/>
-                        <TextView
-                            android:id="@+id/tv_rest_cntn"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/tv_rest_cntn_ttl"
-                            android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
-                            android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
-                            android:textAppearance="?attr/textAppearanceListItem"
-                            android:textColor="@color/text_color_grey_cntn1"
-                            android:textSize="15sp" />
-                    </RelativeLayout>
-                    <LinearLayout
-                        android:id="@+id/ll_rest_file_list"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/activity_vertical_margin"
-                        android:paddingRight="@dimen/activity_vertical_margin"
-                        android:paddingBottom="@dimen/cfrc_vertical_margin_small"
-                        android:orientation="vertical"
-                        android:background="@drawable/bottom_border"
-                        android:visibility="gone">
-                    </LinearLayout>
-                </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/tv_ttl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="18dp"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/text_color_black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_crt_dttm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:textAppearance="?attr/textAppearanceListItemSmall"
+                android:textColor="@color/text_color_dark_grey"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/tv_usr_ttl"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="24dp"
+                android:layout_marginTop="24dp"
+                android:text="신청자"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/text_color_black"
+                android:textSize="15sp" />
+
+            <RelativeLayout
+                android:id="@+id/rl_photo"
+                android:layout_width="@dimen/list_item_avatar_bg_size"
+                android:layout_height="@dimen/list_item_avatar_bg_size"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_usr_ttl"
+                android:background="@drawable/bg_list_profile">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civ_crt_usr_photo"
+                    android:layout_width="@dimen/list_item_avatar_size"
+                    android:layout_height="@dimen/list_item_avatar_size"
+                    android:layout_centerInParent="true" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_crt_usr_nm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="2dp"
+                android:layout_toRightOf="@id/rl_photo"
+                android:textAppearance="?attr/textAppearanceListItemSmall"
+                android:textColor="@color/text_color_grey_cntn1"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/tv_st_ttl"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
+                android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
+                android:text="상태"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/text_color_black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_st_nm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_st_ttl"
+                android:textAppearance="?attr/textAppearanceListItemSmall"
+                android:textColor="@color/text_color_grey_cntn1"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/tv_term_ttl"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
+                android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
+                android:text="기간"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/text_color_black" />
+
+            <TextView
+                android:id="@+id/tv_term"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_term_ttl"
+                android:textAppearance="?attr/textAppearanceListItemSmall"
+                android:textColor="@color/text_color_grey_cntn1"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_tar_obj_tp_nm"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
+                android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
+                android:text="회의"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/text_color_black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_tar_obj_ttl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="9dp"
+                android:layout_toRightOf="@id/tv_tar_obj_tp_nm"
+                android:textAppearance="?attr/textAppearanceListItemSmall"
+                android:textColor="@color/text_color_grey_cntn1"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/tv_impt_tp_nm_ttl"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
+                android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
+                android:text="중요도"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/text_color_black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_impt_tp_nm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="9dp"
+                android:layout_toRightOf="@id/tv_impt_tp_nm_ttl"
+                android:textAppearance="?attr/textAppearanceListItemSmall"
+                android:textColor="@color/text_color_grey_cntn1"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/tv_ord_ttl"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
+                android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
+                android:text="작업순서"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/text_color_black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_ord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="9dp"
+                android:layout_toRightOf="@id/tv_ord_ttl"
+                android:textAppearance="?attr/textAppearanceListItemSmall"
+                android:textColor="@color/text_color_grey_cntn1"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_cntn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/tv_cntn_ttl"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
+                android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
+                android:text="내용"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/text_color_black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_cntn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
+                android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
+                android:layout_toRightOf="@id/tv_cntn_ttl"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/text_color_grey_cntn1"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_doc_file_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/cfrc_vertical_margin_small"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin"
+            android:visibility="gone"></LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_rest_cntn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/tv_rest_cntn_ttl"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
+                android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
+                android:text="작업록"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/text_color_black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_rest_cntn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cfrc_vertical_margin_small"
+                android:layout_marginTop="@dimen/cfrc_vertical_margin_small"
+                android:layout_toRightOf="@id/tv_rest_cntn_ttl"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/text_color_grey_cntn1"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_rest_file_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/cfrc_vertical_margin_small"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin"
+            android:visibility="gone"></LinearLayout>
+    </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
