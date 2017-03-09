@@ -72,6 +72,8 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
+import static android.R.attr.mode;
+
 /**
  * Created by shlee on 2015. 10. 16..
  */
@@ -122,8 +124,6 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
             mObjId = extra.getString(CodeConstant.TASK_ID, "");
             mCrtUsrId = extra.getString(CodeConstant.CRT_USR_ID, "");
             mTabPos = extra.getInt(CodeConstant.TAB_POS, 1);
-            Log.e(TAG, "mTarObjTp = " + mTarObjTp + " /mTarObjId = " + mTarObjId + " /mTarObjTtl = " + mTarObjTtl + " /mTarCrtUsrId= " + mTarCrtUsrId);
-            Log.e(TAG, "TASK_ID= " + mObjId + " /CRT_USR_ID= " + mCrtUsrId + " /mTabPos = " + mTabPos);
         }
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -242,11 +242,9 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
                 saveTaskProc();
             }
         });
-
         if (!TextUtils.isEmpty(mObjId)) {
             loadEditViewTask();
         } else {
-
             mTvCrtDttm.setText(FormatUtil.getSendableFormatNow());
 
             mEtTtl.setText("작업 (" + PreferenceUtil.getInstance().getString(PreferenceUtil.PREF_USR_NM) + ") " + FormatUtil.getSendableFormatNow());
@@ -357,7 +355,7 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
                     public void onNext(Map<String, Object> status) {
                         Log.d(TAG, "I2UrlHelper.Task.getListSnsTaskFile onNext");
                         LinkedTreeMap<String, Object> statusInfo = (LinkedTreeMap<String, Object>) status.get("statusInfo");
-                        setTaskFileData(statusInfo);
+                        setTaskFileData(statusInfo);    // 서버에서 등록된 파일리스트 정보를 받아서 setTaskFileData 호출
                     }
                 });
     }
@@ -471,7 +469,9 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
         //파일공유자료
         setFilesLayoutByEdit(mLlTaskFile, mTvEmptyFile, REQUEST_FILE, statusInfo.get("doc_file_list"));
         //결과자료
-        setFilesLayoutByEdit(mLlTaskRest, mTvEmptyRest, REQUEST_REST, statusInfo.get("rest_file_list"));
+        // setFilesLayoutByEdit(mLlTaskRest, mTvEmptyRest, REQUEST_REST, statusInfo.get("rest_file_list"));
+        // setFilesLayoutByEdit(mLlTaskRest, mTvEmptyRest, REQUEST_REST, statusInfo.get("file_list"));
+        setFilesLayoutByEdit(mLlTaskRest, mTvEmptyRest, REQUEST_REST_KITKAT_INTENT_CALLED, statusInfo.get("file_list"));
     }
 
 
@@ -529,18 +529,15 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
         mTotalList.add(mFileList);
         mTotalList.add(mRestList);
 
-        Log.e(TAG, "mTotalList.size() = " + mTotalList.size());
         List<Map<Integer, Integer>> indexList = new ArrayList<>();
         for (int i = 0; i < mTotalList.size(); i++) {
-            Log.e(TAG, "i = " + i + " / filesList = " + mTotalList.get(i).size());
             if (mTotalList.get(i) == null || mTotalList.get(i).size() < 1) continue;
 
-            for (int j = 0; j < mTotalList.get(i).size(); i++) {
+            for (int j = 0; j < mTotalList.get(i).size(); j++) {
                 Map<String, String> fileMap = (Map<String, String>)mTotalList.get(i).get(j);
-                Log.e(TAG, "i = " + i + " /j = " + j + " / fileMap = " + fileMap.get("file_nm"));
                 if (fileMap == null) break;
 
-                if (CodeConstant.ATTACH_NEW.equals(fileMap.get(CodeConstant.ATTACH_ST))) {
+                if (CodeConstant.ATTACH_NEW.equals(fileMap.get(CodeConstant.ATTACH_ST))) {  // attach_mode = "NEW" 일 때
                     Map<Integer, Integer> index = new HashMap<>();
                     index.put(1, i);
                     index.put(2, j);
@@ -549,8 +546,7 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
                 }
             }
         }
-        Log.e(TAG, "total  upload file cnt = "+indexList.size());
-        if (indexList.size() > 0) {
+        if (indexList.size() > 0) { // 첨부파일이 있을 때 (실제 업로드 되는 파일)
             uplaodFiles(indexList, mTotalList);
         } else {
             saveTask();
@@ -571,8 +567,9 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
                 mImpTp, mEtTaskOrd.getText().toString().trim(),
                 mEtCntn.getText().toString(), mTaskSt, restCntn);
 
-        //mTotalList
-        I2ConnectApi.requestJSON2Map(TaskWriteActivity.this, I2UrlHelper.Task.getSaveTask(mObjId, taskFormBuilder, mMemberList, null))
+
+
+        I2ConnectApi.requestJSON2Map(TaskWriteActivity.this, I2UrlHelper.Task.getSaveTask(mObjId, taskFormBuilder, mMemberList, mTotalList))
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<Map<String, Object>>() {
@@ -656,14 +653,14 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
     }
 
     public void uplaodFiles(final List<Map<Integer, Integer>> indexList, final List<List> totalList) {
-
         if (mUploadedCnt < indexList.size()) {
             DialogUtil.showCircularProgressDialog(TaskWriteActivity.this);
 
             Map<Integer, Integer> index = indexList.get(mUploadedCnt);
-            final int listIndex = index.get(1);
-            final int fileIndex = index.get(2);
+            final int listIndex = index.get(1); // 로컬파일맵 + Rest파일맵
+            final int fileIndex = index.get(2); // 파일맵
             Map<String, String> fileMap = (Map<String, String>)totalList.get(listIndex).get(fileIndex);
+            Log.e(TAG, "uri: " + fileMap.get("uri") );
             Uri uri = Uri.parse(fileMap.get("uri"));
             File file = new File(FileUtil.getPath(this, uri));
             String fileNm = fileMap.get("file_nm");
@@ -702,10 +699,17 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
                                 JSONArray statusInfoArray = I2ResponseParser.getJsonArray(statusInfo, "file_list");
                                 try {
                                     if (statusInfoArray.length() > 0) {
+                                        // 파일을 업로드하고 난 후 업로드 파일에 대한 메타값을 json에서 받아 맵에 저장(업로드 되는 파일만)
+                                        // 여기에 파일 ATTACH_ST 값을 세팅하는 것도 좋은 방법
+                                        // http://m.expertbank.co.kr/i2cowork/sns/file/upload.json
                                         // 기존 리스트에 결과값 추가
                                         ((Map<String, String>)totalList.get(listIndex).get(fileIndex)).put("file_id", statusInfoArray.getJSONObject(0).getString("file_id"));
                                         ((Map<String, String>)totalList.get(listIndex).get(fileIndex)).put("file_nm", statusInfoArray.getJSONObject(0).getString("file_nm"));
                                         ((Map<String, String>)totalList.get(listIndex).get(fileIndex)).put("phscl_file_nm", statusInfoArray.getJSONObject(0).getString("phscl_file_nm"));
+                                        ((Map<String, String>)totalList.get(listIndex).get(fileIndex)).put("file_ext", statusInfoArray.getJSONObject(0).getString("file_ext"));
+                                        ((Map<String, String>)totalList.get(listIndex).get(fileIndex)).put("file_size", statusInfoArray.getJSONObject(0).getString("file_size"));
+                                        ((Map<String, String>)totalList.get(listIndex).get(fileIndex)).put("file_tp_cd", statusInfoArray.getJSONObject(0).getString("file_tp_cd"));
+                                        ((Map<String, String>)totalList.get(listIndex).get(fileIndex)).put("file_path", statusInfoArray.getJSONObject(0).getString("file_path"));
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -719,14 +723,14 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
     }
 
     public void setFilesLayoutByEdit(LinearLayout targetLayout, TextView tvEmpty, int mode, Object object) {
+        // 서버에서 받은 파일리스트가 있으면 화면에 출력하여 준다
 
-        final List<LinkedTreeMap<String, String>> listMap = (List<LinkedTreeMap<String, String>>) object;
+        List<LinkedTreeMap<String, String>> listMap = (List<LinkedTreeMap<String, String>>) object;
 
         if (listMap == null || listMap.size() <= 0) {
             targetLayout.setVisibility(View.GONE);
             tvEmpty.setVisibility(View.VISIBLE);
         } else {
-            Log.e(TAG, "fileList size =" + listMap.size());
             targetLayout.setVisibility(View.VISIBLE);
             targetLayout.removeAllViews();
             tvEmpty.setVisibility(View.GONE);
@@ -741,18 +745,16 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
                 file.put("tar_obj_tp_cd", listMap.get(i).get("tar_obj_tp_cd"));
                 file.put("tar_file_tp_cd", listMap.get(i).get("tar_file_tp_cd"));
                 file.put("phscl_file_nm", listMap.get(i).get("phscl_file_nm"));
-                file.put(CodeConstant.ATTACH_ST, CodeConstant.ATTACHED);
+                file.put(CodeConstant.ATTACH_ST, "NONE");
 
                 switch (mode) {
                     case REQUEST_FILE:
                         if (mFileList == null) mFileList = new ArrayList<Map<String, String>>();
                         mFileList.add(file);
-                        Log.e(TAG, "fileList size = " + mFileList.size());
                         break;
-                    case REQUEST_REST:
+                    case REQUEST_REST_KITKAT_INTENT_CALLED:
                         if (mRestList == null) mRestList = new ArrayList<Map<String, String>>();
                         mRestList.add(file);
-                        Log.e(TAG, "mRestList size = " + mRestList.size());
                         break;
                 }
                 addFilesLayout(targetLayout, tvEmpty, mode, fileNm);
@@ -903,14 +905,12 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
             case REQUEST_FILE_KITKAT_INTENT_CALLED:
                 if (mFileList == null) mFileList = new ArrayList<Map<String, String>>();
                 mFileList.add(file);
-                Log.e(TAG, "fileList size = " + mFileList.size());
                 break;
             case REQUEST_REST:
             case REQUEST_REST_KITKAT_INTENT_CALLED:
                 // 문서만 가능 hwp|gul|txt|doc|docx|ppt|pptx|xls|xlsx|pdf|jpg|png
                 if (mRestList == null) mRestList = new ArrayList<Map<String, String>>();
                 mRestList.add(file);
-                Log.e(TAG, "fileList size = " + mFileList.size());
                 break;
         }
 
@@ -919,8 +919,6 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
     }
 
     public void addFilesLayout(final LinearLayout targetLayout, TextView tvEmpty, final int mode, String fileNm) {
-
-        Log.e("decurd", "addFilesLayout: 실행");
 
         if (TextUtils.isEmpty(fileNm)) return;
 
@@ -936,8 +934,6 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
         FileUtil.setFileExtIcon(ivIcFileExt, fileNm);
         tvFileNm.setText(fileNm);
 
-
-
         ibDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -951,6 +947,7 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
                         //서버업로드 기준 서버삭제
                         if (CodeConstant.ATTACHED.equals(mFileList.get(positoin).get(CodeConstant.ATTACH_ST))) {
                             mFileList.get(positoin).put(CodeConstant.ATTACH_ST, CodeConstant.DEL_ATTACHED);
+                            //Toast.makeText(TaskWriteActivity.this, mFileList.get(positoin)+"", Toast.LENGTH_SHORT).show();
                         } else { //서버 업로드 전이면 클라이언트 파리일스트 삭제
                             mFileList.remove(positoin);
                         }
@@ -962,13 +959,14 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
                         positoin = ((ViewGroup) fileView.getParent()).indexOfChild(fileView);
                         Log.e(TAG, "m remove pos = " + positoin);
                         //서버업로드 기준 서버삭제
-                        if (CodeConstant.ATTACHED.equals(mRestList.get(positoin).get(CodeConstant.ATTACH_ST))) {
-                            mRestList.get(positoin).put(CodeConstant.ATTACH_ST, CodeConstant.DEL_ATTACHED);
+                        // Toast.makeText(TaskWriteActivity.this, "ATTACH_MODE=" + mRestList.get(positoin).get(CodeConstant.ATTACH_ST), Toast.LENGTH_SHORT).show();
+                        if (mRestList.get(positoin).get(CodeConstant.ATTACH_ST).equals("NONE")) {
+                            mRestList.get(positoin).put(CodeConstant.ATTACH_ST, "DELETE");
                         } else { //서버 업로드 전이면 클라이언트 파리일스트 삭제
                             mRestList.remove(positoin);
                         }
                         ((ViewGroup) fileView.getParent()).removeView(fileView);
-                        ((ViewGroup) fileView.getParent()).invalidate();
+                        // ((ViewGroup) fileView.getParent()).invalidate();
                         break;
                 }
                 setFileVisible(mode);
@@ -980,7 +978,7 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
     }
 
     public void setFileVisible(int mode) {
-        Log.e("decurd", "setFileVisible: 실행");
+
         switch (mode) {
             case REQUEST_FILE:
             case REQUEST_FILE_KITKAT_INTENT_CALLED:
@@ -1081,7 +1079,6 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
                 // 참가자
             }
             holder.mUsrID = usrId;
-            Log.e(TAG, "usr name = " + usrNm);
             holder.mTvUsrNm.setText(usrNm);
             Glide.with(holder.mCivCrtUsrPhoto.getContext())
                     .load(I2UrlHelper.File.getUsrImage(usrImg))
@@ -1092,7 +1089,6 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
             holder.mIvDelmember.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.e(TAG, "remove size =" + pos);
                     ((TaskWriteActivity) mContext).mMemberList.remove(pos);
                     removeAt(pos);
                 }
