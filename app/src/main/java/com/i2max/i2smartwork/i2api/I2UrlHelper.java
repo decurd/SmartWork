@@ -1504,10 +1504,24 @@ public class I2UrlHelper {
                             taskFormBuilder.add("tar_file_tp_cd", "FEED");
                             //taskFormBuilder.add("tar_file_tp_cd", file.get("tar_file_tp_cd"));  // GNL|REST
                             taskFormBuilder.add("phscl_file_nm", file.get("phscl_file_nm"));
-                            taskFormBuilder.add("file_ext", file.get("file_ext"));
-                            taskFormBuilder.add("file_size", file.get("file_size"));
-                            taskFormBuilder.add("file_path", file.get("file_path"));
-                            taskFormBuilder.add(CodeConstant.ATTACH_ST, file.get(CodeConstant.ATTACH_ST)); //""?"N":기존파일, "Y" 신규파일, "D" 기존파일삭제 ??TODO 회의랑 다른지 확인
+                            Log.e("decurd", "attach_mode: " + file.get(CodeConstant.ATTACH_ST));
+                            if (file.get(CodeConstant.ATTACH_ST) == "NEW") {
+                                taskFormBuilder.add("file_ext", file.get("file_ext"));
+                                taskFormBuilder.add("file_size", file.get("file_size"));
+                                taskFormBuilder.add("file_path", file.get("file_path"));
+                                taskFormBuilder.add(CodeConstant.ATTACH_ST, "NEW"); //""?"N":기존파일, "Y" 신규파일, "D" 기존파일삭제 ??TODO 회의랑 다른지 확인
+                            } else if (file.get(CodeConstant.ATTACH_ST) == "DELETE")  {
+                                taskFormBuilder.add("file_ext", "");
+                                taskFormBuilder.add("file_size", "");
+                                taskFormBuilder.add("file_path", "");
+                                taskFormBuilder.add(CodeConstant.ATTACH_ST, "DELETE");
+                            } else {
+                                taskFormBuilder.add("file_ext", "");
+                                taskFormBuilder.add("file_size", "");
+                                taskFormBuilder.add("file_path", "");
+                                taskFormBuilder.add(CodeConstant.ATTACH_ST, "NONE");
+                            }
+
                         }
 
                     }
