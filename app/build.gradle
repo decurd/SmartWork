@@ -37,7 +37,7 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 22
+        versionCode 23
         versionName "1.0.4"
         setProperty("archivesBaseName", "i2max-i2smartwork-$versionName")
         multiDexEnabled true
