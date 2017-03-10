@@ -240,8 +240,6 @@ public class TaskDetailViewFragment extends Fragment {
                 });
     }
 
-
-    // TaskWriteActivity 336 라인 참고할 것
     public void setFilesLayout(String title, LinearLayout targetLayout, Object object) {
         final List<LinkedTreeMap<String, String>> filesList = (List<LinkedTreeMap<String, String>>) object;
         if (filesList == null || (filesList != null && filesList.size() <= 0)) {
