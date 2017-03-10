@@ -279,7 +279,7 @@
             android:paddingBottom="@dimen/cfrc_vertical_margin_small"
             android:paddingLeft="@dimen/activity_vertical_margin"
             android:paddingRight="@dimen/activity_vertical_margin"
-            android:visibility="gone"></LinearLayout>
+            android:visibility="gone" />
 
         <RelativeLayout
             android:id="@+id/rl_rest_cntn"
@@ -312,7 +312,6 @@
                 android:textColor="@color/text_color_grey_cntn1"
                 android:textSize="15sp" />
         </RelativeLayout>
-
         <LinearLayout
             android:id="@+id/ll_rest_file_list"
             android:layout_width="match_parent"
@@ -322,6 +321,6 @@
             android:paddingBottom="@dimen/cfrc_vertical_margin_small"
             android:paddingLeft="@dimen/activity_vertical_margin"
             android:paddingRight="@dimen/activity_vertical_margin"
-            android:visibility="gone"></LinearLayout>
+            android:visibility="gone" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
