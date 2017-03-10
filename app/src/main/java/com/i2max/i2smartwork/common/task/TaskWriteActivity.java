@@ -641,6 +641,8 @@ public class TaskWriteActivity extends BaseAppCompatActivity implements DatePick
 //                            intent.putExtra(CodeConstant.TAR_OBJ_ID, mTarObjId);
 //                            intent.putExtra(CodeConstant.TAR_OBJ_TTL, mTarObjTtl);
 //                            intent.putExtra(CodeConstant.TAR_CRT_USR_ID, mTarCrtUsrId);
+
+                            // intent.putExtra(CodeConstant.CRT_USR_ID, mCrtUsrId); // 여기 주석을 제거하면 업무생성 후 상세보기에서 삭제/편집 버튼이 출력된다
                             intent.putExtra(CodeConstant.CUR_OBJ_TP, CodeConstant.TYPE_TASK);
                             intent.putExtra(CodeConstant.CUR_OBJ_ID, taskId);
                             intent.putExtra(CodeConstant.TAB_POS, TaskDetailActivity.VIEW_TASK_DETAIL);
