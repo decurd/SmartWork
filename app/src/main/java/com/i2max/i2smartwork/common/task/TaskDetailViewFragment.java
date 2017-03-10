@@ -68,11 +68,11 @@ public class TaskDetailViewFragment extends Fragment {
         mTvTarObjTpNm = (TextView) view.findViewById(R.id.tv_tar_obj_tp_nm);
         mTvTarObjTtl = (TextView) view.findViewById(R.id.tv_tar_obj_ttl);
         mTvImptTpNm = (TextView) view.findViewById(R.id.tv_impt_tp_nm);
-        mTvOrd= (TextView) view.findViewById(R.id.tv_ord);
+        mTvOrd = (TextView) view.findViewById(R.id.tv_ord);
         mTvCntn = (TextView) view.findViewById(R.id.tv_cntn);
 
         mLlDocFileList = (LinearLayout) view.findViewById(R.id.ll_doc_file_list);
-        mRlRestCntn = (RelativeLayout)view.findViewById(R.id.rl_rest_cntn);
+        mRlRestCntn = (RelativeLayout) view.findViewById(R.id.rl_rest_cntn);
         mTvRestCntn = (TextView) view.findViewById(R.id.tv_rest_cntn);
         mLlRestFileList = (LinearLayout) view.findViewById(R.id.ll_rest_file_list);
 
@@ -88,7 +88,7 @@ public class TaskDetailViewFragment extends Fragment {
 
         mTvTtl.setText(statusInfo.get("ttl").toString());
         //수정이력 있음, 수정자 기준표시, 수정없음, 작성자 기준표시
-        if("".equals(FormatUtil.getStringValidate(statusInfo.get("mod_dttm")))) {
+        if ("".equals(FormatUtil.getStringValidate(statusInfo.get("mod_dttm")))) {
             mTvCrtDttm.setText(FormatUtil.getFormattedDateTime(FormatUtil.getStringValidate(statusInfo.get("crt_dttm")))); //만든시간 표시
         } else {
             mTvCrtDttm.setText(FormatUtil.getFormattedDateTime(FormatUtil.getStringValidate(statusInfo.get("mod_dttm")))); //수정시간 표시
@@ -106,13 +106,13 @@ public class TaskDetailViewFragment extends Fragment {
         mTvTerm.setText(FormatUtil.getFormattedDateTime2(FormatUtil.getStringValidate(statusInfo.get("start_dttm"))) + " ~ " +
                 FormatUtil.getFormattedDateTime2(FormatUtil.getStringValidate(statusInfo.get("end_dttm"))));
 
-        mTvTarObjTpNm.setText(tarObjTp);
+        mTvTarObjTtl.setText(tarObjTp);
 //        SpannableString content = new SpannableString(FormatUtil.getStringValidate(statusInfo.get("tar_obj_ttl")));
 //        content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         String tarObjTtl = FormatUtil.getStringValidate(statusInfo.get("tar_obj_ttl"));
         if (CodeConstant.TYPE_CFRC.equals(tarObjTp) || CodeConstant.TYPE_TASK.equals(tarObjTp)
                 || CodeConstant.TYPE_MEMO.equals(tarObjTp) || CodeConstant.TYPE_WORK.equals(tarObjTp)) {
-            Link tarObjLink = new Link( tarObjTtl );
+            Link tarObjLink = new Link(tarObjTtl);
             tarObjLink.setTypeface(Typeface.DEFAULT_BOLD)
                     .setOnClickListener(new Link.OnClickListener() {
                         @Override
@@ -120,7 +120,7 @@ public class TaskDetailViewFragment extends Fragment {
                             Intent intent = null;
                             if (CodeConstant.TYPE_CFRC.equals(tarObjTp)) {
                                 intent = new Intent(getActivity(), ConferenceDetailActivity.class);
-                            } else if(CodeConstant.TYPE_TASK.equals(tarObjTp)) {
+                            } else if (CodeConstant.TYPE_TASK.equals(tarObjTp)) {
                                 intent = new Intent(getActivity(), TaskDetailActivity.class);
                             } else if (CodeConstant.TYPE_MEMO.equals(tarObjTp)) {
                                 intent = new Intent(getActivity(), MemoDetailActivity.class);
@@ -150,7 +150,8 @@ public class TaskDetailViewFragment extends Fragment {
         setFilesLayout("첨부파일", mLlDocFileList, statusInfo.get("doc_file_list"));
 
         //작업결과자료
-        if(TextUtils.isEmpty(FormatUtil.getStringValidate(statusInfo.get("rest_cntn")))) mRlRestCntn.setVisibility(View.GONE);
+        if (TextUtils.isEmpty(FormatUtil.getStringValidate(statusInfo.get("rest_cntn"))))
+            mRlRestCntn.setVisibility(View.GONE);
         else {
             mRlRestCntn.setVisibility(View.VISIBLE);
             mTvRestCntn.setText(FormatUtil.getStringValidate(statusInfo.get("rest_cntn")));
@@ -189,6 +190,8 @@ public class TaskDetailViewFragment extends Fragment {
                 .subscribe(new Subscriber<Map<String, Object>>() {
                     @Override
                     public void onCompleted() {
+                        // 첨부파일 출력 요구사항이 들어오면 풀어준다
+                        // loadViewTaskFile();
                         Log.d(TAG, "I2UrlHelper.Task.getViewSnsTask onCompleted");
                     }
 
@@ -209,11 +212,39 @@ public class TaskDetailViewFragment extends Fragment {
                 });
     }
 
+    public void loadViewTaskFile() {
+        I2ConnectApi.requestJSON2Map(getActivity(), I2UrlHelper.Task.getListSnsTaskFile(mTarObjId))
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<Map<String, Object>>() {
+                    @Override
+                    public void onCompleted() {
+                        Log.d(TAG, "I2UrlHelper.Task.getListSnsTaskFile onCompleted");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d(TAG, "I2UrlHelper.Task.getListSnsTaskFile onError");
+                        e.printStackTrace();
+                        //Error dialog 표시
+                        DialogUtil.showErrorDialogWithValidateSession(getActivity(), e);
+                    }
+
+                    @Override
+                    public void onNext(Map<String, Object> status) {
+                        Log.d(TAG, "I2UrlHelper.Task.getListSnsTaskFile onNext");
+                        LinkedTreeMap<String, Object> statusInfo = (LinkedTreeMap<String, Object>) status.get("statusInfo");
+                        Log.e(TAG, "onNext: statusInfo = " + statusInfo);
+                        setFilesLayout("첨부파일", mLlRestFileList, statusInfo.get("file_list"));    // 서버에서 등록된 파일리스트 정보를 받아서 setTaskFileData 호출
+                    }
+                });
+    }
 
 
+    // TaskWriteActivity 336 라인 참고할 것
     public void setFilesLayout(String title, LinearLayout targetLayout, Object object) {
-        final List<LinkedTreeMap<String, String>> filesList = (List<LinkedTreeMap<String, String>>)object;
-        if(filesList == null || (filesList != null && filesList.size() <= 0)) {
+        final List<LinkedTreeMap<String, String>> filesList = (List<LinkedTreeMap<String, String>>) object;
+        if (filesList == null || (filesList != null && filesList.size() <= 0)) {
             targetLayout.setVisibility(View.GONE);
         } else {
             Log.e(TAG, "fileList size =" + filesList.size());
@@ -239,7 +270,7 @@ public class TaskDetailViewFragment extends Fragment {
             targetLayout.addView(tvTitle);
 
             //addFilesView
-            for (int i=0; i<filesList.size(); i++) {
+            for (int i = 0; i < filesList.size(); i++) {
                 final LinkedTreeMap<String, String> fileMap = filesList.get(i);
                 LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 View fileView = inflater.inflate(R.layout.view_item_file, null);
@@ -279,15 +310,12 @@ public class TaskDetailViewFragment extends Fragment {
                         getActivity().startActivity(intent);
 
 
-                            }
-                        });
-
-                        targetLayout.addView(fileView);
                     }
+                });
 
-                }
+                targetLayout.addView(fileView);
             }
 
-
-
+        }
+    }
 }
