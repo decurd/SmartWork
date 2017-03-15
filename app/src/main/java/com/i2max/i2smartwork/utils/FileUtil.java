@@ -29,6 +29,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -298,7 +299,14 @@ public class FileUtil {
         String mimeType = null;
 
         Log.e("FileUtil", "uri = "+ uri.toString());
-        String extension = MimeTypeMap.getFileExtensionFromUrl(getPath(context, uri));
+        Log.e("FileUtil", "getPath(context, uri): " + getPath(context, uri) );
+        String filePath="";
+        try {
+            filePath = URLEncoder.encode(getPath(context, uri), "utf-8").replace("+", "%20"); // 한글명 파일 일때 업로드 에러가 나서 추가
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String extension = MimeTypeMap.getFileExtensionFromUrl(filePath);
         Log.e("FileUtil", "extension = "+ extension);
         if (extension != null) {
             mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
@@ -325,6 +333,7 @@ public class FileUtil {
             type = getMimeType(context, uri);
         } catch(Exception e) {
             type = "";
+            e.getStackTrace();
         }
         result = type.indexOf("image") > -1;
 
