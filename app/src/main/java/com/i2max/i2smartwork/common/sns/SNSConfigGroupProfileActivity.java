@@ -178,9 +178,16 @@ public class SNSConfigGroupProfileActivity extends BaseAppCompatActivity {
                     uplaodProfileImageFiles();
                 } else {
                     if(isEditedProfileInfo()) {
-                        updateGroupProfile();
+                        if ("".equals(((EditText) findViewById(R.id.et_grp_nm)).getText().toString())) {
+                            DialogUtil.showInformationDialog(SNSConfigGroupProfileActivity.this, "그룹명을 입력해 주세요");
+                        } else if ("".equals(((EditText) findViewById(R.id.et_grp_intro)).getText().toString())) {
+                            DialogUtil.showInformationDialog(SNSConfigGroupProfileActivity.this, "그룹 소개를 입력해 주세요");
+                        }
+                        else {
+                            updateGroupProfile();
+                        }
                     } else {
-                        DialogUtil.showInformationDialog(SNSConfigGroupProfileActivity.this, "변경된 내용이 없습니다.");
+                        updateGroupProfile();
                     }
                 }
 
