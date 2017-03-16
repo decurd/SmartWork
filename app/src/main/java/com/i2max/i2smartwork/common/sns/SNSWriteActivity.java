@@ -1041,7 +1041,7 @@ public class SNSWriteActivity extends BaseAppCompatActivity {
                 ((RelativeLayout) tvFileNm.getParent()).setVisibility(View.VISIBLE);
             }
         } catch (Exception e) {
-            Toast.makeText(SNSWriteActivity.this, "인식되지 않는 파일입니다.\n파일을 확인하시고 다시 선택하시기 바랍니다 ", Toast.LENGTH_LONG).show();
+            Toast.makeText(SNSWriteActivity.this, "인식되지 않는 파일입니다.\n파일을 확인하시고 다시 선택하시기 바랍니다", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
 
