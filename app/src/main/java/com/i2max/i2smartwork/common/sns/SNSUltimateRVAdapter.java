@@ -948,9 +948,16 @@ public class SNSUltimateRVAdapter extends UltimateViewAdapter<SNSUltimateRVAdapt
                             try {
                                 if ("Y".equals(FormatUtil.getStringValidate(convertYn))) { //i2viewer
                                     //i2viewer 연동 (문서중 conv_yn='Y'값만)
-                                    intent = IntentUtil.getI2ViewerIntent(
+                                    /*intent = IntentUtil.getI2ViewerIntent(
                                             FormatUtil.getStringValidate(fileId),
-                                            FormatUtil.getStringValidate(fileNm));
+                                            FormatUtil.getStringValidate(fileNm));*/
+
+
+                                    // 첨부파일 링크를 바로  다운로드 할 수 있게 처리해 달라는 요청이 있어서 삽입
+                                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse(downloadURL));
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("Authorization", I2UrlHelper.getTokenAuthorization());
+                                    intent.putExtra(Browser.EXTRA_HEADERS, bundle);
                                 } else if ("mp4".equalsIgnoreCase(fileExt) || "fla".equalsIgnoreCase(fileExt)) { //video
                                     intent = IntentUtil.getVideoPlayIntent(downloadURL);
                                 } else {
