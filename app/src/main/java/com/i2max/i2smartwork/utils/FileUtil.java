@@ -315,6 +315,8 @@ public class FileUtil {
         //미지원 마임타입
         if(mimeType == null || "null".equals(mimeType)) {
             if("hwp".equals(extension)) mimeType = "application/hwp";
+            else if ("jpg".equals(extension) || "JPG".equals(extension)) mimeType = "image/jpeg";
+            else if ("png".equals(extension) || "PNG".equals(extension)) mimeType = "image/png";
             else if("doc".equals(extension) || "docx".equals(extension)) mimeType = "application/msword";
             else if("xls".equals(extension) || "xlsx".equals(extension)
                     || "xlsm".equals(extension)) mimeType = "application/vnd.ms-excel";
