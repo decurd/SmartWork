@@ -27,6 +27,7 @@ import com.i2max.i2smartwork.utils.DisplayUtil;
 import com.i2max.i2smartwork.utils.FileUtil;
 import com.i2max.i2smartwork.utils.FormatUtil;
 import com.i2max.i2smartwork.utils.IntentUtil;
+import com.i2max.i2smartwork.utils.PreferenceUtil;
 
 import java.util.List;
 import java.util.Map;
@@ -189,7 +190,7 @@ public class MemoDetailViewFragment extends Fragment {
                 tvFileNm.setText(fileNm);
                 FileUtil.setFileExtIcon(ivIcFileExt, fileNm);
                 final String fileExt = FileUtil.getFileExtsion(fileNm);
-                final String downloadURL = I2UrlHelper.File.getDownloadFile(FormatUtil.getStringValidate(fileMap.get("file_id")));
+                final String downloadURL = I2UrlHelper.File.getDownloadFile(FormatUtil.getStringValidate(fileMap.get("file_id")), PreferenceUtil.getInstance().getString(PreferenceUtil.PREF_USR_ID));
 
                 fileView.setOnClickListener(new View.OnClickListener() {
                     @Override
