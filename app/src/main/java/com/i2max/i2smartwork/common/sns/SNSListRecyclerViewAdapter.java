@@ -765,7 +765,7 @@ public class SNSListRecyclerViewAdapter
                     final String fileNm = jsonFile.getString("file_nm");
                     final String fileId = FormatUtil.getStringValidate(jsonFile.getString("file_id"));
                     final String fileExt = FileUtil.getFileExtsion(fileNm);
-                    final String downloadURL = I2UrlHelper.File.getDownloadFile(fileId);
+                    final String downloadURL = I2UrlHelper.File.getDownloadFile(fileId, PreferenceUtil.getInstance().getString(PreferenceUtil.PREF_USR_ID));
                     final String convertYn = jsonFile.getString("conv_yn");
 
 
