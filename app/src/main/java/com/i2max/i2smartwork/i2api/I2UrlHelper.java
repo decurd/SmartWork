@@ -1913,11 +1913,11 @@ public class I2UrlHelper {
          * @param fileId
          * @return
          */
-        public static String getDownloadFile(String fileId) {
+        public static String getDownloadFile(String fileId, String usr_id) {
             StringBuilder builder = new StringBuilder();
             builder.append(NetworkConstant.SERVER_HOST);
             builder.append(FILE_DOWNLOAD);
-            builder.append("?file_id=" + fileId);
+            builder.append("?file_id=" + fileId + "&usr_id=" + usr_id);
 
             return builder.toString();
         }
