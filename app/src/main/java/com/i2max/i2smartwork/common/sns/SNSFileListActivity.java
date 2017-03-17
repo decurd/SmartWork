@@ -155,7 +155,7 @@ public class SNSFileListActivity extends BaseAppCompatActivity {
                                 mFileList.addAll(statusInfoList);
                                 mAdapter.notifyDataSetChanged();
                             } else {
-                                Toast.makeText(getBaseContext(), getString(R.string.no_file_data_available), Toast.LENGTH_SHORT).show();
+                                // Toast.makeText(getBaseContext(), getString(R.string.no_file_data_available), Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             Toast.makeText(getBaseContext(), I2ResponseParser.getStatusMessage(jsonObject), Toast.LENGTH_SHORT).show();
