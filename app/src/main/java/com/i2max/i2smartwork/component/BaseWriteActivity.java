@@ -20,6 +20,7 @@ import com.i2max.i2smartwork.i2api.I2UrlHelper;
 import com.i2max.i2smartwork.utils.FileUtil;
 import com.i2max.i2smartwork.utils.FormatUtil;
 import com.i2max.i2smartwork.utils.IntentUtil;
+import com.i2max.i2smartwork.utils.PreferenceUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -64,7 +65,7 @@ public class BaseWriteActivity extends BaseAppCompatActivity {
                     final String fileNm = jsonFile.getString("file_nm");
                     final String fileExt = FileUtil.getFileExtsion(fileNm);
                     final String fileId = FormatUtil.getStringValidate(jsonFile.getString("file_id"));
-                    final String downloadURL = I2UrlHelper.File.getDownloadFile(fileId);
+                    final String downloadURL = I2UrlHelper.File.getDownloadFile(fileId, PreferenceUtil.getInstance().getString(PreferenceUtil.PREF_USR_ID));
                     final String convertYn = jsonFile.getString("conv_yn");
 
                     LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
